@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+<h3>Recent Posts</h3>
+
+<div class="flex-container">
+    {% for post in site.posts %}
+    <article class="col-2-article">
+        <div class="article-contents">
+            <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+            <h4 class="post-title">
+                <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            </h4>
+            <p>{{ post.desc }}<p>
+        </div>
+    </article>
+    {% endfor %}
+</div>

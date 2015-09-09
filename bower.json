@@ -1,0 +1,23 @@
+{
+  "name": "benjanes.github.io",
+  "version": "0.0.1",
+  "authors": [
+    "Ben Janes <brjanes@gmail.com>"
+  ],
+  "description": "website",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "www.benjanes.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "fontawesome#~4.4.0",
+    "jquery": "~2.1.4",
+    "velocity": "~1.2.2"
+  }
+}

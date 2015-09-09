@@ -1,0 +1,22 @@
+# Site settings
+title: Ben Janes
+subtitle: Frontend Web Developer
+email: ben@benjanes.com
+description: "Front end web developer based in Beacon, NY"
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://www.benjanes.com" # the base hostname & protocol for your site
+github_username:  benjanes
+linkedin_username: 	benjanes
+navigation:
+- url: /about/
+  title: about
+- url: /projects/
+  title: projects
+- url: /work/
+  title: work
+
+# Build settings
+markdown: kramdown
+destination: ./_site
+include: [CNAME]
+exclude: [node_modules, bower_components, bower.json, Gruntfile.js, package.json]

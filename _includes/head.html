@@ -1,0 +1,28 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="description" content="{{ site.description }}">
+
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:700,400&amp;text=BJenasFrotdWbDvlpr" rel="stylesheet" type="text/css">
+    <!--<link href="https://fonts.googleapis.com/css?family=Rubik:400" rel="stylesheet" type="text/css">-->
+
+    <link rel="stylesheet" href="{{ "/assets/css/main.min.css" | prepend: site.baseurl }}">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <script type="text/javascript" src="{{ "/assets/js/libs.min.js" | prepend: site.baseurl }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+        var activeCallback = $.Callbacks();
+        WebFont.load({
+            google: {
+                families: ['Rubik:400']
+            },
+            active: function(){
+                activeCallback.fire();
+            }
+        });
+    </script>
+
+</head>
