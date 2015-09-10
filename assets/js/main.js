@@ -129,6 +129,8 @@ $(document).ready(function () {
 
   /*  The menu underline bar animations  **
   ****************************************/
+  var activeCallback = $.Callbacks();
+
   var unXpos, unWidth;
   // the links as jquery obj
   var $menu_links = $('.page-link');
@@ -151,15 +153,16 @@ $(document).ready(function () {
 
     animate();
 
-    // Update hovIndex on hover
-    $menu_links.hover(function(){
-      hovIndex = $menu_links.index($(this)) + 1;
-      underlineStroke = 'red';
-      unWidth = unWidth / 10;
-    }, function(){
-      hovIndex = currentIndex;
-      underlineStroke = 'black';
-    });
+  });
+
+  // Update hovIndex on hover
+  $menu_links.hover(function(){
+    hovIndex = $menu_links.index($(this)) + 1;
+    underlineStroke = 'red';
+    unWidth = unWidth / 10;
+  }, function(){
+    hovIndex = currentIndex;
+    underlineStroke = 'black';
   });
 
   // find the position and width of each menu link, store values in 2 arrays
@@ -264,6 +267,19 @@ $(document).ready(function () {
   $(window).resize(function () {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(resizingFunctions, 25);
+  });
+
+  // Load in the web font
+  WebFont.load({
+      google: {
+          families: ['Rubik:400']
+      },
+      active: function(){
+          activeCallback.fire();
+      },
+      inactive: function(){
+          activeCallback.fire();
+      }
   });
 
 });
