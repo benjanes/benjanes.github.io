@@ -3,6 +3,7 @@ layout: post
 title:  "A Good Drag"
 date:   2015-09-25 12:00:00
 desc: Getting better dragging on canvas objects with EaselJS.
+tags: ["EaselJS", "animation", "dragging", "JavaScript", "canvas", "HTML5"]
 ---
 
 I have been checking out EaselJS lately as a tool to streamline some of the tasks of managing objects drawn on a canvas. When I looked at the EaselJS site's examples for dragging, I saw that dragged objects were getting recentered relative to the mouse coordinates, causing the object to jump a little when the mouse first moved. After looking through the docs a little further, I realized this was a pretty easy thing to fix, and it certainly isn't a bug. For more information on EaselJS and the whole CreateJS suite, check out [the CreateJS site](http://createjs.com/).

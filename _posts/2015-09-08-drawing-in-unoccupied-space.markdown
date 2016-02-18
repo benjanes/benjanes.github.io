@@ -2,7 +2,8 @@
 layout: post
 title:  "Drawing in Unoccupied Space"
 date:   2015-09-08 12:00:00
-desc: Drawing words randomly on a canvas without overlap
+desc: Drawing words randomly on a canvas without overlap.
+tags: ["canvas", "JavaScript", "algorithms", "HTML5"]
 ---
 
 I wanted to draw a series of randomly positioned words with variable size on a canvas element, such that the words wouldn’t overlap on the canvas. Now, I knew there was probably (definitely) a really smart way to do this, but I wanted to go through and see what I could come up with myself. So fair warning, this probably (definitely) isn’t the best way to go about doing this.

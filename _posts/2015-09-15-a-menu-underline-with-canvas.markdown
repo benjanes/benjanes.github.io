@@ -3,6 +3,7 @@ layout: post
 title:  "A Menu Underline with Canvas"
 date:   2015-09-15 12:00:00
 desc: Making an animated canvas menu underline
+tags: ["canvas", "requestAnimationFrame", "JavaScript", "HTML5", "animation"]
 ---
 
 A while back I set out to make an animated underline for a menu (check out the one on this page, which you'll see if you hover over a menu item). The goal was to have an underline under the active menu item that would animate over to any hovered menu item but return to the active menu item when menu items were unhovered. I first thought of doing this with CSS transitions, but I anticipated some issues with using a single underline element and having multiple transition states. I also wanted to include a clicking animation where the underline would bow/bend in the center when a menu item was clicked, and I didn't see this going down easily in CSS. Seeing as I eventually ditched the bending animation, CSS transitions may have been the way to go. Oh well! Below is a runthrough of how I went about doing this with `canvas` (including the clicking/bending animation). I used jQuery to make this a bit easier. A working demo can be seen [here](http://codepen.io/benjanes/pen/PPqMaQ).
