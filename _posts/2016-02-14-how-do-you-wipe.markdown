@@ -2,7 +2,8 @@
 layout: post
 title:  "How do you wipe?"
 date:   2016-02-14 12:00:00
-desc: Text wipe animation techniques.
+desc: Text wipe transition animation techniques at the copy block or character level.
+tags: ["Greensock", "animation", "CSS", "JavaScript", "wipe transition"]
 ---
 
 The text wipe animation is a familiar means of introducing text to a frame, or, alternatively, removing text before transitioning the next bit of copy into a frame. Typically the text position remains static while it is apparently wiped away from one direction or another. So how to go about achieving a clean wipe?
