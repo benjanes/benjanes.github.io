@@ -188,6 +188,53 @@ h4.post-title {
     margin-bottom: 25px;
 }
 
+/* Pagination */
+.pagination {
+    height: 60px;
+    width: 100%;
+    position: relative;
+}
+
+.next {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 40px solid #000;
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    top: 0;
+    left: 50%;
+    transform: translateX(10px);
+    transition: all 0.4s;
+}
+a.next {
+    border-left: 40px solid $link-color;
+}
+a.next:hover {
+    transform: translateX(14px) scale(1.2);
+}
+
+.previous {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-right: 40px solid #000;
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50px);
+    transition: all 0.4s;
+}
+a.previous {
+    border-right: 40px solid $link-color;
+}
+a.previous:hover {
+    transform: translateX(-54px) scale(1.2);
+}
+
 /* Projects */
 .flex-container {
     margin: 0 0.5em;

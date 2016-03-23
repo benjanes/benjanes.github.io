@@ -6,7 +6,7 @@ layout: default
 
 <div class="flex-container" itemscope itemtype="http://schema.org/Blog">
 
-    {% for post in site.posts %}
+    {% for post in paginator.posts %}
     <article class="col-2-article">
         <div class="article-contents" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
             <span class="post-meta"><time itemprop="datePublished" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time></span>
@@ -18,5 +18,19 @@ layout: default
         </div>
     </article>
     {% endfor %}
+
+    <!-- Pagination links -->
+    <div class="pagination">
+        {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path }}"   class="previous"></a>
+        {% else %}
+        <span class="previous"></span>
+        {% endif %}
+        {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path }}" class="  next"></a>
+        {% else %}
+        <span class="next"></span>
+        {% endif %}
+    </div>
 
 </div>
