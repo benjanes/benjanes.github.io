@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "ES6 Flavored Promises"
-date: 2016-03-26 12:00:00
+date: 2016-03-25 12:00:00
 desc: Using the native Promise object in ES6.
 tags: ["JavaScript", "Promises", "ES6", "ES6 Promise"]
 ---
