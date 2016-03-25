@@ -3,7 +3,7 @@ layout: post
 title: "Basic Promises"
 date: 2016-03-24 12:00:00
 desc: Barebones promises with q.defer().
-tags: ["JavaScript", "Socket.IO", "NodeJS"]
+tags: ["JavaScript", "Promises", "npm q"]
 ---
 
 Promises are a fantastic means for dealing with asynchronous code. Lets say you have:
