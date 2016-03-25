@@ -56,8 +56,8 @@ function doSomethingPromisey(myInput) {
 This is what the code from the last post looks like when we switch it over from using `q.defer` to the ES6 `Promise` object:
 
 {% highlight javascript %}
-// the one difference here from the last post is that there 
-// is some error handling incorporated into the promises. if 
+// the one difference here from the last post is that there
+// is some error handling incorporated into the promises. if
 // a reject is called at any point within a chain of .then's, 
 // the remainder of that .then chain is skipped over until the
 // .catch is reached. (see below where these functions are
