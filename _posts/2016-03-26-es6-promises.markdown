@@ -6,7 +6,7 @@ desc: Using the native Promise object in ES6.
 tags: ["JavaScript", "Promises", "ES6", "ES6 Promise"]
 ---
 
-My [last post](/2016/03/24/basic-promises.html) was a brief intro to creating promises with `q.defer`. ES6 incorporates a native `Promise` object that can be used to the same end. If you'd like to *promisify* an async function, return an instance of the `Promise` object from that function. The `Promise` constructor takes a callback (referred to as an "executor" function), which in turn takes `resolve` and `reject` callbacks. The body of the callback passed to the `Promise` constructor contains the functionality of the original async function, with return values getting passed to either the `resolve` (in the case of successful resolution) or `reject`. This is a lot clearer in code.
+My last post was a brief intro to creating promises with `q.defer`. ES6 incorporates a native `Promise` object that can be used to the same end. If you'd like to *promisify* an async function, return an instance of the `Promise` object from that function. The `Promise` constructor takes a callback (referred to as an "executor" function), which in turn takes `resolve` and `reject` callbacks. The body of the callback passed to the `Promise` constructor contains the functionality of the original async function, with return values getting passed to either the `resolve` (in the case of successful resolution) or `reject`. This is a lot clearer in code.
 
 {% highlight javascript %}
 // say we are working in node with an async function, e.g. 
