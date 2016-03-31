@@ -2,11 +2,11 @@
 layout: post
 title: "Generator Functions"
 date: 2016-03-30 12:00:00
-desc: How can we use a generator function?
+desc: The basics on ES6 generators.
 tags: ["JavaScript", "Generator function", "ES6", "ES6 Generator"]
 ---
 
-Generators in ES6 provide a way to lazily evaluate a function. Say we start to execute a generator function and then exit out of it. Normally (*i.e.*, in the case of a return statement in a function) this would mean that we are done with this function. In the case of a generator, at some later point we can re-enter the generator function where we left off and evaluate the next part.
+Generators in ES6 provide a way to lazily evaluate a function. Say we start to execute a generator function and then exit out of it. Normally (*e.g.*, in the case of a `return` statement in a function) this would mean that we are done with this function. In the case of a generator, at some later point we can re-enter the generator function where we left off and evaluate the next part.
 
 This gives us another tool for handling asynchronous code. When we combine the powers of generators with those of promises, we end up being able to write code that *looks synchronous* but gets evaluated asynchronously. In other words, we can write asynchronous code that looks really nice! I will get to that in the next post, but for now let's explore how generator functions work.
 
@@ -15,7 +15,7 @@ Generator functions are declared using `*` as either `function* myFunc(){}` or `
 2. This returns an object and pops the control flow out of the generator,
 3. The control flow returns to the point in the code at which `.next` was called. 
 
-The object returned when calling `.next` has a `.value` property and a `.done` property. The `.value` property is equal to the the evaluation of the expression directly after the `yield` statement (on the same line). The `.done` property is a boolean that indicates if the end of the generator function has been reached. The next time that we call `.next` on the iterator object, evaluation of the generator object will pick up where it left off and go until the next `yield` statement is reached.
+The object returned when calling `.next` has a `.value` property and a `.done` property. The `.value` property is equal to the the evaluation of the expression directly after the `yield` statement (on the same line), just like a `return` statment. The `.done` property is a boolean that indicates if the end of the generator function has been reached. The next time that we call `.next` on the iterator object, evaluation of the generator object will pick up where it left off and go until the next `yield` statement is reached.
 
 
 {% highlight javascript %}
@@ -54,7 +54,7 @@ console.log(secondYield); // --> logs 15
 // last yield on line5. you might expect that, because this is 
 // the last yield in the generator, the returned object's .done
 // property would be set to true. however, .done is relative to 
-// the generator function body, not the yield statement's themselves
+// the generator function body, not the yield statements themselves
 // ... calling .next on the iterator object won't return an object
 // with .done === true until we hit a return statement or 
 // the end of the generator function's body (the ending curly brace)
@@ -74,7 +74,7 @@ console.log(lastYield.done); // --> logs true
 // .next on the iterator object all we want. but it will always
 // return the same thing:
 var oneMoreYield = myGenIterator.next();
-console.log(oneMoreYield); // --> logs { value : undefined, done : true }
+console.log(oneMoreYield); // --> logs {value: undefined, done: true}
 {% endhighlight %}
 
 Next time: combining generators and promises with `q.spawn`.
