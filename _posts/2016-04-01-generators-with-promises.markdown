@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Generators with Promises"
-date: 2016-03-30 12:00:00
+date: 2016-04-02 12:00:00
 desc: What happens when generators join forces with promises? Only good things.
 tags: ["JavaScript", "Generators", "Promises", "q.spawn", "ES6"]
 ---
