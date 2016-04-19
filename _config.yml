@@ -16,6 +16,7 @@ navigation:
   title: work
 
 # Build settings
+gems: [jekyll-paginate]
 paginate: 4
 markdown: kramdown
 destination: ./_site
