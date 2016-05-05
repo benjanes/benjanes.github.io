@@ -3,7 +3,7 @@ layout: post
 title: "Why PostGIS?"
 date: 2016-04-19 12:00:00
 desc: Why PostGIS and how do I start?
-tags: ["Postgres", "PostGIS", "Bookshelf", "knex"]
+tags: ["Postgres", "PostGIS", "geographic data"]
 ---
 
 Postgres offers a number of [geometric data types](http://www.postgresql.org/docs/9.4/static/datatype-geometric.html), making for simple spatial queries on your data. It is tempting to use these native geometric data types when storing geographic information. Points in geographic space are typically mapped as latitude and longitude, which are, after all, just y and x coordinates, right? The problem is that in geometric terms, x and y are Cartesian coordinates &mdash; that is, they are mapped on a flat surface. Latitude and longitude are angular coordinates that map to a curved surface. 
