@@ -259,19 +259,9 @@ a.previous:hover {
 }
 
 .col-2-article:nth-of-type(even) {
-    transform: rotateY(180deg);
     margin: 0 0 2em 2%;
     @include media-query($on-palm) {
         margin: 1em 0.5em;
-        transform: rotate(180deg);
-        box-shadow: 1px -2px 4px 0 gray;
-    }
-}
-
-.col-2-article:nth-of-type(even) .article-contents {
-    transform: rotateY(-180deg);
-    @include media-query($on-palm) {
-        transform: rotate(-180deg);
     }
 }
 
@@ -289,67 +279,74 @@ a.previous:hover {
 }
 
 
+.project-img {
+    margin: 0 auto 1em auto;
+    height: 160px;
+    display: inherit;
+    border-radius: 3px;
+}
+
 /* Site examples */
 
-.site-examples {
-    padding: 0 15px;
-    @include media-query($on-palm) {
-        padding: 0;
-    }
-}
+// .site-examples {
+//     padding: 0 15px;
+//     @include media-query($on-palm) {
+//         padding: 0;
+//     }
+// }
 
-.site-examples a {
-    display: inline-block;
-    width: 50%;
+// .site-examples a {
+//     display: inline-block;
+//     width: 50%;
 
-    @include media-query($on-palm) {
-        display: block;
-        width: 75%;
-        margin: 15px auto;
-    }
-}
+//     @include media-query($on-palm) {
+//         display: block;
+//         width: 75%;
+//         margin: 15px auto;
+//     }
+// }
 
-.site-examples a:last-of-type {
-    -webkit-transform: translateX(50%);
-        -ms-transform: translateX(50%);
-            transform: translateX(50%);
+// .site-examples a:last-of-type {
+//     -webkit-transform: translateX(50%);
+//         -ms-transform: translateX(50%);
+//             transform: translateX(50%);
 
-    @include media-query($on-palm) {
-        -webkit-transform: translateX(0);
-            -ms-transform: translateX(0);
-                transform: translateX(0);
-    }
-}
+//     @include media-query($on-palm) {
+//         -webkit-transform: translateX(0);
+//             -ms-transform: translateX(0);
+//                 transform: translateX(0);
+//     }
+// }
 
-.site-examples a img {
-    -webkit-clip-path: polygon(50% 50%, 75% 50%, 100% 25%, 75% 0, 50% 25%, 75% 50%, 50% 50%, 25% 50%, 0 25%, 25% 0, 50% 25%, 25% 50%, 50% 50%, 25% 50%, 0 75%, 25% 100%, 50% 75%, 25% 50%, 50% 50%, 75% 50%, 100% 75%, 75% 100%, 50% 75%, 75% 50%, 50% 50%);
-    clip-path: polygon(50% 50%, 75% 50%, 100% 25%, 75% 0, 50% 25%, 75% 50%, 50% 50%, 25% 50%, 0 25%, 25% 0, 50% 25%, 25% 50%, 50% 50%, 25% 50%, 0 75%, 25% 100%, 50% 75%, 25% 50%, 50% 50%, 75% 50%, 100% 75%, 75% 100%, 50% 75%, 75% 50%, 50% 50%);
-    opacity: .8;
-    -webkit-filter: grayscale(100%);
-    -moz-filter: grayscale(100%);
-    filter: grayscale(100%);
-    transition: all 1s;
+// .site-examples a img {
+//     -webkit-clip-path: polygon(50% 50%, 75% 50%, 100% 25%, 75% 0, 50% 25%, 75% 50%, 50% 50%, 25% 50%, 0 25%, 25% 0, 50% 25%, 25% 50%, 50% 50%, 25% 50%, 0 75%, 25% 100%, 50% 75%, 25% 50%, 50% 50%, 75% 50%, 100% 75%, 75% 100%, 50% 75%, 75% 50%, 50% 50%);
+//     clip-path: polygon(50% 50%, 75% 50%, 100% 25%, 75% 0, 50% 25%, 75% 50%, 50% 50%, 25% 50%, 0 25%, 25% 0, 50% 25%, 25% 50%, 50% 50%, 25% 50%, 0 75%, 25% 100%, 50% 75%, 25% 50%, 50% 50%, 75% 50%, 100% 75%, 75% 100%, 50% 75%, 75% 50%, 50% 50%);
+//     opacity: .8;
+//     -webkit-filter: grayscale(100%);
+//     -moz-filter: grayscale(100%);
+//     filter: grayscale(100%);
+//     transition: all 1s;
 
-    @include media-query($on-palm) {
-        -webkit-clip-path: none;
-                clip-path: none;
-    }
+//     @include media-query($on-palm) {
+//         -webkit-clip-path: none;
+//                 clip-path: none;
+//     }
 
-}
+// }
 
-.site-examples a img:hover {
-    -webkit-clip-path: polygon(50% 50%, 50% 50%, 100% 50%, 100% 0, 50% 0%, 50% 50%, 50% 50%, 50% 50%, 0 50%, 0 0, 50% 0, 50% 50%, 50% 50%, 50% 50%, 0 50%, 0 100%, 50% 100%, 50% 50%, 50% 50%, 50% 50%, 100% 50%, 100% 100%, 50% 100%, 50% 50%, 50% 50%);
-    clip-path: polygon(50% 50%, 50% 50%, 100% 50%, 100% 0, 50% 0%, 50% 50%, 50% 50%, 50% 50%, 0 50%, 0 0, 50% 0, 50% 50%, 50% 50%, 50% 50%, 0 50%, 0 100%, 50% 100%, 50% 50%, 50% 50%, 50% 50%, 100% 50%, 100% 100%, 50% 100%, 50% 50%, 50% 50%);
-    opacity: 1;
-    -webkit-filter: grayscale(0%);
-    -moz-filter: grayscale(0%);
-    filter: grayscale(0%);
+// .site-examples a img:hover {
+//     -webkit-clip-path: polygon(50% 50%, 50% 50%, 100% 50%, 100% 0, 50% 0%, 50% 50%, 50% 50%, 50% 50%, 0 50%, 0 0, 50% 0, 50% 50%, 50% 50%, 50% 50%, 0 50%, 0 100%, 50% 100%, 50% 50%, 50% 50%, 50% 50%, 100% 50%, 100% 100%, 50% 100%, 50% 50%, 50% 50%);
+//     clip-path: polygon(50% 50%, 50% 50%, 100% 50%, 100% 0, 50% 0%, 50% 50%, 50% 50%, 50% 50%, 0 50%, 0 0, 50% 0, 50% 50%, 50% 50%, 50% 50%, 0 50%, 0 100%, 50% 100%, 50% 50%, 50% 50%, 50% 50%, 100% 50%, 100% 100%, 50% 100%, 50% 50%, 50% 50%);
+//     opacity: 1;
+//     -webkit-filter: grayscale(0%);
+//     -moz-filter: grayscale(0%);
+//     filter: grayscale(0%);
 
-    @include media-query($on-palm) {
-        -webkit-clip-path: none;
-                clip-path: none;
-    }
-}
+//     @include media-query($on-palm) {
+//         -webkit-clip-path: none;
+//                 clip-path: none;
+//     }
+// }
 
 
 /*
