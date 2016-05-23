@@ -188,6 +188,16 @@ h4.post-title {
     margin-bottom: 25px;
 }
 
+/* About page */
+.profile-pic {
+    width: 110px;
+    height: 110px;
+    float: left;
+    margin: 0 1em 0 0;
+    border-radius: 50%;
+}
+
+
 /* Pagination */
 .pagination {
     height: 60px;
@@ -284,6 +294,8 @@ a.previous:hover {
     height: 160px;
     display: inherit;
     border-radius: 3px;
+    // border: 1px solid #000;
+    box-shadow: 0 0 2px 1px #000;
 }
 
 /* Site examples */
