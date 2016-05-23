@@ -6,6 +6,9 @@ layout: default
   <h1 class="block-title">{{ page.title }}</h1>
 
   <article class="post-content {{ page.title | downcase }}-content">
+    {% if page.url == '/about/' %}
+      <img class="profile-pic" src="/assets/img/profile.jpg" />
+    {% endif %}
     {{ content }}
   </article>
 
