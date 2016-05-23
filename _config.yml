@@ -12,8 +12,8 @@ navigation:
   title: about
 - url: /projects/
   title: projects
-- url: /work/
-  title: work
+- url: /pens/
+  title: pens
 
 # Build settings
 gems: [jekyll-paginate]
