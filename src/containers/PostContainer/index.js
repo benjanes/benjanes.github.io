@@ -29,17 +29,34 @@ class PostContainer extends Component {
     browserHistory.push(href);
   }
 
+  renderDate() {
+    return (
+      <time
+        itemProp='datePublished'
+        dateTime={ this.props.post.meta.date }
+      >
+        { `${ parseInt(this.props.post.meta.month) }-${ parseInt(this.props.post.meta.day )}-${ this.props.post.meta.year }` }
+      </time>
+    )
+  }
+
   renderContent() {
     if (!this.props.post) return;
     return (
-      <div>
-        <h2>{ this.props.post.meta.title }</h2>
-        <div
+      <div itemType='http://schema.org/BlogPosting'>
+        <meta itemProp='keywords' content={ this.props.post.meta.tags.join(',') } />
+        <meta itemProp='description' content={ this.props.post.meta.desc } />
+        <header>
+          <h1 itemProp='name'>{ this.props.post.meta.title }</h1>
+          { this.renderDate() }
+        </header>
+        <article
           className='content'
+          itemProp='articleBody'
           dangerouslySetInnerHTML={{ __html: this.props.post.content }}
           onClick={ this.handleClick }
         >
-        </div>
+        </article>
       </div>
     )
   }
