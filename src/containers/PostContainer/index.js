@@ -21,11 +21,12 @@ class PostContainer extends Component {
   }
 
   handleClick(e) {
-    const target = e.target;
-    const href = target.getAttribute('href');
+    if (e.target.tagName !== 'A') return;
+    const href = e.target.getAttribute('href');
+    if (!/^\//.test(href)) return;
 
-    // if the click is on an <a>, and the href attr starts with '/', preventDefault and do a browserHistory.push
-    // otherwise, don't preventDefault
+    e.preventDefault();
+    browserHistory.push(href);
   }
 
   renderContent() {
