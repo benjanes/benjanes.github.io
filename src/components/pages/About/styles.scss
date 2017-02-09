@@ -1,0 +1,45 @@
+:local(.styles) {
+  position: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+
+  .about-panel {
+    position: relative;
+    width: 50%;
+    height: 50%;
+    background-color: gray;
+    backface-visibility: hidden;
+    transform: perspective(500px);
+    overflow: hidden;
+  }
+
+  .about-content {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+  }
+
+  .about-panel:nth-of-type(1) .about-content {
+    left: 0;
+    top: 0;
+  }
+
+  .about-panel:nth-of-type(2) .about-content {
+    left: -100%;
+    top: 0;
+  }
+
+  .about-panel:nth-of-type(3) .about-content {
+    left: 0;
+    top: -100%;
+  }
+
+  .about-panel:nth-of-type(4) .about-content {
+    left: -100%;
+    top: -100%;
+  }
+}

@@ -1,0 +1,99 @@
+import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
+import { styles } from './styles.scss';
+
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { setPostIdx, setProjIdx, setTransitionDirection } from '../../../store/actions.js';
+
+class NavCard extends Component {
+  constructor(props) {
+    super(props);
+    console.log(props);
+  }
+
+  handleHomeClick(e) {
+    e.preventDefault();
+    if (this.props.isAnimating) return;
+    browserHistory.push('/');
+  }
+
+  handleForwardClick() {
+    if (this.props.isAnimating) return;
+    this.props.setTransitionDirection('forward');
+
+    if (this.props.parent === 'blog') {
+      this.props.setPostIdx(this.props.postIdx + 1);
+    } else if (this.props.parent === 'projects') {
+      this.props.setProjIdx(this.props.projIdx + 1);
+    }
+  }
+
+  handleBackClick() {
+    if (this.props.isAnimating) return;
+    this.props.setTransitionDirection('reverse');
+
+    if (this.props.parent === 'blog') {
+      this.props.setPostIdx(this.props.postIdx - 1);
+    } else if (this.props.parent === 'projects') {
+      this.props.setProjIdx(this.props.projIdx - 1);
+    }
+  }
+
+  renderHomeBtn() {
+    return <a className='home-btn' onClick={ this.handleHomeClick.bind(this) } href='/'>HOME</a>
+  }
+
+  renderTitle() {
+    return <div className='title'>{ this.props.parent }</div>
+  }
+
+  renderBackBtn() {
+    return (
+      <div
+        className={ `nav-btn ${ !this.props.offScreen ? 'disabled' : '' }` }
+        onClick={ this.props.offScreen ? this.handleBackClick.bind(this) : null }
+      >
+        &lt;
+      </div>
+    )
+  }
+
+  renderForwardBtn() {
+    return (
+      <div
+        className={ `nav-btn ${ !this.props.onDeck ? 'disabled' : '' }` }
+        onClick={ this.props.onDeck ? this.handleForwardClick.bind(this) : null }
+      >
+        &gt;
+      </div>
+    )
+  }
+
+  render() {
+    return (
+      <div className={ `${styles}` }>
+        { this.props.homeAtTop && this.renderTitle() }
+        { this.props.homeAtTop && this.renderHomeBtn() }
+        { this.props.includeDirBtns && this.renderBackBtn() }
+        { this.props.includeDirBtns && this.renderForwardBtn() }
+        { !this.props.homeAtTop && this.renderHomeBtn() }
+        { !this.props.homeAtTop && this.renderTitle() }
+      </div>
+    );
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ setPostIdx, setProjIdx, setTransitionDirection }, dispatch);
+}
+
+function mapStateToProps({ rootState }) {
+  return {
+    postIdx: rootState.appData.postIdx,
+    projIdx: rootState.appData.projIdx,
+    transitionDirection: rootState.appData.transitionDirection
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavCard);

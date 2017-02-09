@@ -1,0 +1,75 @@
+:local(.styles) {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  z-index: -2;
+
+  .tile {
+    width: 50%;
+    height: 50vh;
+  }
+
+  .tile:nth-of-type(1), .tile:nth-of-type(4) {
+    background: repeating-linear-gradient(0deg, #000, #000 1vh, #fff 1vh, #fff 2vh);
+  }
+
+  .tile:nth-of-type(2), .tile:nth-of-type(3) {
+    background: repeating-linear-gradient(90deg, #000, #000 1vw, #fff 1vw, #fff 2vw);
+  }
+
+  .tile:nth-of-type(1) {
+    animation: slideBgDown 0.5s linear infinite;
+  }
+
+  .tile:nth-of-type(2) {
+    animation: slideBgLeft 0.5s linear infinite;
+  }
+
+  .tile:nth-of-type(3) {
+    animation: slideBgRight 0.5s linear infinite;
+  }
+
+  .tile:nth-of-type(4) {
+    animation: slideBgUp 0.5s linear infinite;
+  }
+}
+
+@keyframes slideBgLeft {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: -2vw;
+  }
+}
+
+@keyframes slideBgRight {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 2vw;
+  }
+}
+
+@keyframes slideBgUp {
+  0% {
+    background-position-y: 0;
+  }
+  100% {
+    background-position-y: -2vh;
+  }
+}
+
+@keyframes slideBgDown {
+  0% {
+    background-position-y: 0;
+  }
+  100% {
+    background-position-y: 2vh;
+  }
+}
