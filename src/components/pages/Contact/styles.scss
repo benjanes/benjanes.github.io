@@ -34,12 +34,18 @@
     transform: perspective(500px);
   }
 
+  .nav-card {
+    background: repeating-linear-gradient(0deg, #fff, #000 1vh, #fff 2vh);
+    animation: slideBgDown 0.5s linear infinite;
+  }
+
   .home-btn {
     height: 50%;
   }
 
   .title {
     height: 50%;
+    background-color: rgba(255,164,83,0.9);
   }
 
   // .contact-btn.email {

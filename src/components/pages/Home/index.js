@@ -43,6 +43,16 @@ export default class Home extends Component {
         .to(this.$card2, 0.25, { rotationX: 0 })
         .to(this.$card1, 0.25, { rotationY: 0 })
         .to(this.$card4, 0.25, { rotationX: 0 });
+    } else {
+      tl
+        .set(this.$card1, { rotationY: 0, x: '-100%' })
+        .set(this.$card2, { rotationX: 0, x: '100%' })
+        .set(this.$card3, { rotationY: 0, x: '100%' })
+        .set(this.$card4, { rotationX: 0, x: '-100%' })
+        .to(this.$card1, 0.45, { x: '0%' }, 0.15)
+        .to(this.$card2, 0.4, { x: '0%' }, 0.05)
+        .to(this.$card3, 0.5, { x: '0%' }, 0.2)
+        .to(this.$card4, 0.4, { x: '0%' }, 0);
     }
 
     tl.call(next);
@@ -81,6 +91,12 @@ export default class Home extends Component {
         .to(this.$card1, 0.25, { rotationY: -91 })
         .to(this.$card2, 0.25, { rotationX: 91 })
         .to(this.$card3, 0.25, { rotationY: 91 });
+    } else {
+      tl
+        .fromTo(this.$card1, 0.45, { x: '0%' }, { x: '-100%', ease: Power2.easeInOut }, 0.15)
+        .fromTo(this.$card2, 0.4, { x: '0%' }, { x: '100%', ease: Power2.easeInOut }, 0.05)
+        .fromTo(this.$card3, 0.5, { x: '0%' }, { x: '100%', ease: Power2.easeInOut }, 0.2)
+        .fromTo(this.$card4, 0.4, { x: '0%' }, { x: '-100%', ease: Power2.easeInOut }, 0);
     }
     
     tl.call(next);
@@ -93,32 +109,32 @@ export default class Home extends Component {
           ref={ card => this.$card1 = card }
           className='menu-item'
         >
-          <MenuItem to='/contact' bgColor='beige'>
-            <h1>CONTACT</h1>
+          <MenuItem to='/contact' bgColor='rgba(255,164,83,0.9)'>
+            <h1>contact</h1>
           </MenuItem>
         </div>
         <div
           ref={ card => this.$card2 = card }
           className='menu-item'
         >
-          <MenuItem to='/projects' bgColor='gray'>
-            <h1>PROJECTS</h1>
+          <MenuItem to='/projects' bgColor='rgba(255,92,83,0.9)'>
+            <h1>projects</h1>
           </MenuItem>
         </div>
         <div
           ref={ card => this.$card4 = card }
           className='menu-item'
         >
-          <MenuItem to='/blog' bgColor='orange'>
-            <h1>BLOG</h1>
+          <MenuItem to='/blog' bgColor='rgba(76,232,95,0.9)'>
+            <h1>blog</h1>
           </MenuItem>
         </div>
         <div
           ref={ card => this.$card3 = card }
           className='menu-item'
         >
-          <MenuItem to='/about' bgColor='plum'>
-            <h1>ABOUT</h1>
+          <MenuItem to='/about' bgColor='rgba(72,203,215,0.9)'>
+            <h1>about</h1>
           </MenuItem>
         </div>
       </div>

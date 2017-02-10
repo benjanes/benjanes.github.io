@@ -15,6 +15,11 @@
     transform: perspective(500px);
   }
 
+  .nav-card {
+    background: repeating-linear-gradient(90deg, #fff, #000 1vw, #fff 2vw);
+    animation: slideBgRight 0.5s linear infinite;
+  }
+
   .nav-btn {
     height: 30%;
   }
@@ -25,5 +30,11 @@
 
   .title {
     height: 35%;
+    background-color: rgba(76,232,95,0.9);
+  }
+
+  .card-holder a {
+    background-color: #73F082;
+    border: 1px solid #01D31B;
   }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactTransitionGroup from 'react-addons-transition-group';
+import AppBg from '../sections/AppBg';
 import { styles } from './styles.scss';
 
 import { connect } from 'react-redux';
@@ -20,6 +21,7 @@ class App extends Component {
   render() {
     return (
       <div className={ `${styles}` }>
+        <AppBg />
         <ReactTransitionGroup
           component='div'
           className='main-transition'

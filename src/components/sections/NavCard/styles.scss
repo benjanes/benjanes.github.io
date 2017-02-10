@@ -8,19 +8,55 @@
 
   .nav-btn {
     box-sizing: border-box;
+    font-size: 2em;
     width: 50%;
-    background-color: orange;
+    color: #000;
+    background-color: rgba(255,255,255,0.95);
     border: 1px solid #000;
     cursor: pointer;
+    position: relative;
+    transition: all 0.4s;
+
+    span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .nav-btn.disabled {
+    background-color: rgba(200,200,200,1);
+    color: #aaa;
+    cursor: default;
   }
 
   .home-btn {
     width: 100%;
-    background-color: green;
+    background-color: #000;
+    color: #fff;
+    font-size: 2em;
+    position: relative;
+
+    span {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 
   .title {
     width: 100%;
-    background-color: red;
+    position: relative;
+
+    h2 {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      color: #fff;
+      top: 50%;
+      transform: translateY(-50%);
+    }
   }
 }

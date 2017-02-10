@@ -127,7 +127,7 @@ export default class Projects extends Component {
         >
           <CardSlot
             current={ this.state.cardTwo }
-            directionCurrent='RTL'
+            directionCurrent='LTR'
             directionNext='TTB'
             directionCurrentReverse='BTT'
             directionNextReverse='RTL'

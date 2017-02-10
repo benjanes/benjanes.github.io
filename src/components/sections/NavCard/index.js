@@ -41,20 +41,24 @@ class NavCard extends Component {
   }
 
   renderHomeBtn() {
-    return <a className='home-btn' onClick={ this.handleHomeClick.bind(this) } href='/'>HOME</a>
+    return (
+      <a className='home-btn' onClick={ this.handleHomeClick.bind(this) } href='/'>
+        <span className='fa'>&#xf015;</span>
+      </a>
+    )
   }
 
   renderTitle() {
-    return <div className='title'>{ this.props.parent }</div>
+    return <div className='title'><h2>{ this.props.parent }</h2></div>
   }
 
   renderBackBtn() {
     return (
       <div
-        className={ `nav-btn ${ !this.props.offScreen ? 'disabled' : '' }` }
+        className={ `fa nav-btn ${ !this.props.offScreen ? 'disabled' : '' }` }
         onClick={ this.props.offScreen ? this.handleBackClick.bind(this) : null }
       >
-        &lt;
+        <span>&#xf053;</span>
       </div>
     )
   }
@@ -62,17 +66,17 @@ class NavCard extends Component {
   renderForwardBtn() {
     return (
       <div
-        className={ `nav-btn ${ !this.props.onDeck ? 'disabled' : '' }` }
+        className={ `fa nav-btn ${ !this.props.onDeck ? 'disabled' : '' }` }
         onClick={ this.props.onDeck ? this.handleForwardClick.bind(this) : null }
       >
-        &gt;
+        <span>&#xf054;</span>
       </div>
     )
   }
 
   render() {
     return (
-      <div className={ `${styles}` }>
+      <div className={ `${styles} nav-card` }>
         { this.props.homeAtTop && this.renderTitle() }
         { this.props.homeAtTop && this.renderHomeBtn() }
         { this.props.includeDirBtns && this.renderBackBtn() }

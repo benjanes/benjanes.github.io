@@ -20,7 +20,6 @@ const keyFrames = {
   }
 };
 
-// can probably achieve conditional animations by accessing lastPath prop from the App component (parent of About)
 class CardSlot extends Component {
   constructor(props) {
     super(props);
