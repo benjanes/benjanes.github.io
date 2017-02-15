@@ -8,6 +8,7 @@ import routes from './routes';
 
 const store = configureStore({}, browserHistory);
 const history = syncHistoryWithStore(browserHistory, store);
+window.requestAnimFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.msRequestAnimationFrame || window.oRequestAnimationFrame || function(callback) {return setTimeout(callback, 1);};
 
 render(
   <Provider store={ store }>

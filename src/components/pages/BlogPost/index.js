@@ -10,6 +10,7 @@ export default class BlogPost extends Component {
   }
 
   componentWillEnter(next) {
+    // switch this for nav between posts
     const tl = new TimelineMax();
 
     if (this.props.lastPath === '/blog') {
