@@ -14,6 +14,7 @@ export default class ScrollProgressBar extends Component {
     };
 
     this.handleScroll = this.handleScroll.bind(this);
+    this.animateProgressBar = this.animateProgressBar.bind(this);
   }
 
   componentDidMount() {
@@ -36,8 +37,11 @@ export default class ScrollProgressBar extends Component {
 
   componentWillUnmount() {
     const handleScroll = this.handleScroll;
+    const animateProgressBar = this.animateProgressBar;
+
     window.removeEventListener('scroll', handleScroll);
     // cancelAnimationFrame...
+    cancelAnimationFrame(animateProgressBar);
   }
 
   addTriangle(rowIdx) {
@@ -63,6 +67,7 @@ export default class ScrollProgressBar extends Component {
   }
 
   animateProgressBar() {
+    const animateProgressBar = this.animateProgressBar;
     const ctx = this.state.ctx;
     const triangles = this.state.triangles;
     const d = this.state.d;
@@ -70,7 +75,7 @@ export default class ScrollProgressBar extends Component {
     ctx.clearRect(0, 0, this.$canvas.width, this.$canvas.height);
     drawTriangles(triangles, ctx, d);
 
-    requestAnimFrame(this.animateProgressBar.bind(this));
+    requestAnimFrame(animateProgressBar);
   }
 
   render() {

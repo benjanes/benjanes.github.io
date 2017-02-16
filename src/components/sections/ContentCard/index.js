@@ -12,7 +12,16 @@ export default class ContentCard extends Component {
   renderContent() {
     if (!this.props.content) return;
     return (
-      <h2>{ this.props.content.title }</h2>
+      <div className='card-container'>
+        <h2>{ this.props.content.title }</h2>
+
+        <div className='addl-info'>
+          <div className='addl-info-inner'>
+            <p>{ this.props.content.desc }</p>
+            <p>[{ this.props.content.tags.reduce((str, tag) => `${str}, ${tag}`) }]</p>
+          </div>
+        </div>
+      </div>
     );
   }
 
