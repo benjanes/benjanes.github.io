@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { styles } from './styles.scss';
+import { Link } from 'react-router';
 
-
-// can probably achieve conditional animations by accessing lastPath prop from the App component (parent of About)
 export default class About extends Component {
   constructor(props) {
     super(props);
@@ -13,6 +12,7 @@ export default class About extends Component {
     const tl = new TimelineMax();
 
     tl
+      .set(this.$btn, { transformOrigin: '0% 50%', rotationY: -91 })
       .set(this.$card1, { transformOrigin: '50% 100%', rotationX: 91 })
       .set(this.$card2, { transformOrigin: '0% 50%', rotationY: 91 })
       .set(this.$card3, { transformOrigin: '50% 0%', rotationX: -91 })
@@ -24,10 +24,15 @@ export default class About extends Component {
       .call(next);
   }
 
+  componentDidEnter() {
+    TweenMax.to(this.$btn, 0.4, { rotationY: 0 });
+  }
+
   componentWillLeave(next) {
     const tl = new TimelineMax();
 
     tl
+      .set(this.$btn, { transformOrigin: '0% 50%' })
       .set(this.$card1, { transformOrigin: '50% 100%', rotationX: 0 })
       .set(this.$card2, { transformOrigin: '0% 50%', rotationY: 0 })
       .set(this.$card3, { transformOrigin: '50% 0%', rotationX: 0 })
@@ -36,6 +41,7 @@ export default class About extends Component {
       .to(this.$card1, 0.25, { rotationX: 91 })
       .to(this.$card4, 0.25, { rotationY: -91 })
       .to(this.$card3, 0.25, { rotationX: -91 })
+      .to(this.$btn, 0.4, { rotationY: -91 }, 0)
       .call(next);
   }
 
@@ -81,6 +87,16 @@ export default class About extends Component {
           className='about-panel'
         >
           { this.renderContent() }
+        </div>
+        <div
+          className='about-nav-btn fa'
+          ref={ btn => this.$btn = btn }
+        >
+          <Link
+            to='/'
+          >
+            <span>&#xf015;</span>
+          </Link>
         </div>
       </div>
     );

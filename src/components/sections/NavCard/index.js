@@ -9,7 +9,6 @@ import { setPostIdx, setProjIdx, setTransitionDirection } from '../../../store/a
 class NavCard extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
   }
 
   handleHomeClick(e) {

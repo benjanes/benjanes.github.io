@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { styles } from './styles.scss';
 import { browserHistory } from 'react-router';
-// import { Link } from 'react-router';
 import MenuItem from '../../sections/MenuItem';
 
 export default class Home extends Component {

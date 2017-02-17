@@ -75,6 +75,7 @@ class CardSlot extends Component {
           className='card-holder'
         >
           <ContentCard
+            type={ this.props.type }
             content={ this.state.next }
           />
         </div>
@@ -83,6 +84,7 @@ class CardSlot extends Component {
           className='card-holder'
         >
           <ContentCard
+            type={ this.props.type }
             content={ this.state.post }
           />
         </div>
