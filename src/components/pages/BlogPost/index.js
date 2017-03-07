@@ -14,7 +14,7 @@ export default class BlogPost extends Component {
 
     if (this.props.lastPath === '/blog') {
       tl
-        .set([this.$btn1, this.$btn2], { transformOrigin: '0% 50%', rotationY: -91 })
+        .set([this.$btn1, this.$btn2], { transformOrigin: '0% 50%', rotationY: -91, backfaceVisibility: 'hidden' })
         .to(this.$btn1, 0.4, { rotationY: 0 }, '+=1')
         .to(this.$btn2, 0.4, { rotationY: 0 }, 1.15);
     }

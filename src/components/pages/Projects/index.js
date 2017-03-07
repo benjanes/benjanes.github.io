@@ -42,10 +42,10 @@ export default class Projects extends Component {
     const tl = new TimelineMax();
 
     tl
-      .set(this.$card1, { transformOrigin: '50% 100%', rotationX: 91 })
-      .set(this.$card2, { transformOrigin: '0% 50%', rotationY: 91 })
-      .set(this.$card3, { transformOrigin: '50% 0%', rotationX: -91 })
-      .set(this.$card4, { transformOrigin: '100% 50%', rotationY: -91 })
+      .set(this.$card1, { transformOrigin: '50% 100%', rotationX: 91, backfaceVisibility: 'hidden' })
+      .set(this.$card2, { transformOrigin: '0% 50%', rotationY: 91, backfaceVisibility: 'hidden' })
+      .set(this.$card3, { transformOrigin: '50% 0%', rotationX: -91, backfaceVisibility: 'hidden' })
+      .set(this.$card4, { transformOrigin: '100% 50%', rotationY: -91, backfaceVisibility: 'hidden' })
       .to(this.$card2, 0.25, { rotationY: 0 }, '+=1')
       .to(this.$card3, 0.25, { rotationX: 0 })
       .to(this.$card4, 0.25, { rotationY: 0 })
@@ -61,10 +61,10 @@ export default class Projects extends Component {
     const tl = new TimelineMax();
 
     tl
-      .set(this.$card1, { transformOrigin: '50% 100%' })
-      .set(this.$card2, { transformOrigin: '0% 50%' })
-      .set(this.$card3, { transformOrigin: '50% 0%' })
-      .set(this.$card4, { transformOrigin: '100% 50%' })
+      .set(this.$card1, { transformOrigin: '50% 100%', backfaceVisibility: 'hidden' })
+      .set(this.$card2, { transformOrigin: '0% 50%', backfaceVisibility: 'hidden' })
+      .set(this.$card3, { transformOrigin: '50% 0%', backfaceVisibility: 'hidden' })
+      .set(this.$card4, { transformOrigin: '100% 50%', backfaceVisibility: 'hidden' })
       .to(this.$card1, 0.25, { rotationX: 91 })
       .to(this.$card4, 0.25, { rotationY: -91 })
       .to(this.$card3, 0.25, { rotationX: -91 })

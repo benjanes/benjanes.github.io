@@ -14,10 +14,10 @@ export default class Home extends Component {
     const lastPath = this.props.lastPath;
     const tl = new TimelineMax();
     tl
-      .set(this.$card1, { transformOrigin: '100% 50%', rotationY: -91 })
-      .set(this.$card2, { transformOrigin: '50% 100%', rotationX: 91 })
-      .set(this.$card3, { transformOrigin: '0% 50%', rotationY: 91 })
-      .set(this.$card4, { transformOrigin: '50% 0%', rotationX: -91 });
+      .set(this.$card1, { transformOrigin: '100% 50%', rotationY: -91, backfaceVisibility: 'hidden' })
+      .set(this.$card2, { transformOrigin: '50% 100%', rotationX: 91, backfaceVisibility: 'hidden' })
+      .set(this.$card3, { transformOrigin: '0% 50%', rotationY: 91, backfaceVisibility: 'hidden' })
+      .set(this.$card4, { transformOrigin: '50% 0%', rotationX: -91, backfaceVisibility: 'hidden' });
     
     if (lastPath === '/contact') {
       tl
@@ -62,10 +62,10 @@ export default class Home extends Component {
     const nextPath = browserHistory.getCurrentLocation().pathname;
     const tl = new TimelineMax();
     tl
-      .set(this.$card1, { transformOrigin: '100% 50%' })
-      .set(this.$card2, { transformOrigin: '50% 100%' })
-      .set(this.$card3, { transformOrigin: '0% 50%' })
-      .set(this.$card4, { transformOrigin: '50% 0%' });
+      .set(this.$card1, { transformOrigin: '100% 50%', backfaceVisibility: 'hidden' })
+      .set(this.$card2, { transformOrigin: '50% 100%', backfaceVisibility: 'hidden' })
+      .set(this.$card3, { transformOrigin: '0% 50%', backfaceVisibility: 'hidden' })
+      .set(this.$card4, { transformOrigin: '50% 0%', backfaceVisibility: 'hidden' });
       
     if (nextPath === '/contact') {
       tl
