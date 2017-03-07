@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { styles } from './styles.scss';
 import { browserHistory } from 'react-router';
+import ScrollProgressBar from '../../components/sections/ScrollProgressBar';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -14,10 +15,6 @@ class PostContainer extends Component {
     const params = props.params;
     const file = `${params.year}-${params.month}-${params.day}-${params.filename}`;
     this.props.getPost(file);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    console.log(nextProps.post);
   }
 
   handleClick(e) {
@@ -43,20 +40,25 @@ class PostContainer extends Component {
   renderContent() {
     if (!this.props.post) return;
     return (
-      <div itemType='http://schema.org/BlogPosting'>
-        <meta itemProp='keywords' content={ this.props.post.meta.tags.join(',') } />
-        <meta itemProp='description' content={ this.props.post.meta.desc } />
-        <header>
-          <h1 itemProp='name'>{ this.props.post.meta.title }</h1>
-          { this.renderDate() }
-        </header>
-        <article
-          className='content'
-          itemProp='articleBody'
-          dangerouslySetInnerHTML={{ __html: this.props.post.content }}
-          onClick={ this.handleClick }
-        >
-        </article>
+      <div>
+        <div itemType='http://schema.org/BlogPosting'>
+          <meta itemProp='keywords' content={ this.props.post.meta.tags.join(',') } />
+          <meta itemProp='description' content={ this.props.post.meta.desc } />
+          <header>
+            <h1 itemProp='name'>{ this.props.post.meta.title }</h1>
+            { this.renderDate() }
+          </header>
+          <article
+            className='content'
+            itemProp='articleBody'
+            dangerouslySetInnerHTML={{ __html: this.props.post.content }}
+            onClick={ this.handleClick }
+          >
+          </article>
+        </div>
+        <ScrollProgressBar
+          maxRows={ 40 }
+        />
       </div>
     )
   }

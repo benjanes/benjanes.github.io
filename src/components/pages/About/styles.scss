@@ -7,17 +7,56 @@
   left: 0;
   top: 0;
 
+  .about-nav-btn {
+    position: fixed;
+    background-color: black;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    top: 5px;
+    transform: perspective(125px);
+
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      color: white;
+      text-decoration: none;
+      position: relative;
+
+      span {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    a:visited {
+      color: white;
+    }
+  }
+
   .about-panel {
     position: relative;
     width: 50%;
     height: 50%;
+    
     background-color: #A4ECF3;
     backface-visibility: hidden;
     transform: perspective(500px);
     overflow: hidden;
+  
+    // put in a slightly lighter or darker bg color
+    &:nth-of-type(2), &:nth-of-type(3) {
+      background-color: orange;
+    }
   }
 
   .about-content {
+    padding: 1.5em 2.5em;
+    box-sizing: border-box;
     width: 100vw;
     height: 100vh;
     position: absolute;
@@ -41,5 +80,10 @@
   .about-panel:nth-of-type(4) .about-content {
     left: -100%;
     top: -100%;
+  }
+
+  .about-content-inner {
+    max-width: 900px;
+    margin: 0 auto;
   }
 }

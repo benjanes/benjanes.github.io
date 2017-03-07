@@ -110,6 +110,7 @@ export default class Blog extends Component {
           className='card'
         >
           <CardSlot
+            type='post'
             current={ this.state.cardThree }
             directionCurrent='LTR'
             directionNext='LTR'
@@ -126,6 +127,7 @@ export default class Blog extends Component {
           className='card'
         >
           <CardSlot
+            type='post'
             current={ this.state.cardTwo }
             directionCurrent='TTB'
             directionNext='LTR'
@@ -155,6 +157,7 @@ export default class Blog extends Component {
           className='card'
         >
           <CardSlot
+            type='post'
             current={ this.state.cardOne }
             directionCurrent='TTB'
             directionNext='TTB'

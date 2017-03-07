@@ -44,10 +44,10 @@ export default class Contact extends Component {
 
   renderContactBtns() {
     const contacts = [
-      { type: 'email', link: 'link' },
-      { type: 'linkedin', link: 'link' },
-      { type: 'gh', link: 'link' },
-      { type: 'cp', link: 'link' }
+      { type: 'email', link: 'mailto:brjanes@gmail.com', icon: 'fa-envelope' },
+      { type: 'linkedin', link: 'https://www.linkedin.com/in/benjanes1/', icon: 'fa-linkedin' },
+      { type: 'gh', link: 'https://github.com/benjanes', icon: 'fa-github' },
+      { type: 'cp', link: 'http://codepen.io/benjanes', icon: 'fa-codepen' }
     ];
     return <div className='contact-btn-container'>{ contacts.map(this.renderBtn.bind(this)) }</div>;
   }
@@ -57,9 +57,9 @@ export default class Contact extends Component {
       <a
         ref={ btn => this[`$btn${idx}`] = btn }
         key={ btn.type }
-        className={ `contact-btn ${ btn.type }` }
+        className={ `contact-btn` }
         href={ btn.link }
-      >{ btn.type }</a>
+      ><i className={ `fa ${btn.icon}` }></i></a>
     )
   }
 

@@ -9,10 +9,42 @@ export default class ContentCard extends Component {
     super(props);
   }
 
+  renderPostInfo() {
+    return <p>[{ this.props.content.tags.reduce((str, tag) => `${str}, ${tag}`) }]</p>;
+  }
+
+  renderProjectLinks() {
+    const links = [];
+    if (this.props.content.projLink) links.push({ type: 'project', href: this.props.content.projLink });
+    if (this.props.content.ghLink) links.push({ type: 'github', href: this.props.content.ghLink });
+    if (this.props.content.cpLink) links.push({ type: 'codepen', href: this.props.content.cpLink });
+
+    return (
+      <div>
+        { links.map(link => {
+          return (
+            <a href={ link.href } key={ link.type }>
+              <i className={ `fa fa-${link.type}` }></i>
+            </a>
+          )
+        })}
+      </div>
+    )
+  }
+
   renderContent() {
     if (!this.props.content) return;
     return (
-      <h2>{ this.props.content.title }</h2>
+      <div className='card-container'>
+        <h2>{ this.props.content.title }</h2>
+        <div className='addl-info'>
+          <div className='addl-info-inner'>
+            <p>{ this.props.content.desc }</p>
+            { this.props.type === 'post' && this.renderPostInfo() }
+            { this.props.type === 'project' && this.renderProjectLinks() }
+          </div>
+        </div>
+      </div>
     );
   }
 
@@ -22,14 +54,23 @@ export default class ContentCard extends Component {
     return `/${post.year}/${post.month}/${post.day}/${post.filename}`;
   }
 
-  render() {
+  renderPost() {
     return (
       <Link
-        className={ `${styles}` }
+        className='post-link'
         to={ this.generatePostUrl() }
       >
         { this.renderContent() }
       </Link>
+    );
+  }
+
+  render() {
+    return (
+      <div className={ `${styles} card-container-outer` }>
+        { this.props.type === 'post' && this.renderPost() }
+        { this.props.type === 'project' && this.renderContent() }
+      </div>
     );
   }
 }

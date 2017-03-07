@@ -12,9 +12,6 @@ export default class Projects extends Component {
   constructor(props) {
     super(props);
 
-    // console.log(projects);
-    console.log(props.projIdx);
-
     this.state = {
       projects: projects,
       isAnimating: true,
@@ -38,7 +35,6 @@ export default class Projects extends Component {
   }
 
   componentWillEnter(next) {
-    // console.log(this.props.lastPath);
     const tl = new TimelineMax();
 
     tl
@@ -97,6 +93,7 @@ export default class Projects extends Component {
           className='card'
         >
           <CardSlot
+            type='project'
             current={ this.state.cardThree }
             directionCurrent='TTB'
             directionNext='TTB'
@@ -126,6 +123,7 @@ export default class Projects extends Component {
           className='card'
         >
           <CardSlot
+            type='project'
             current={ this.state.cardTwo }
             directionCurrent='LTR'
             directionNext='TTB'
@@ -142,6 +140,7 @@ export default class Projects extends Component {
           className='card'
         >
           <CardSlot
+            type='project'
             current={ this.state.cardOne }
             directionCurrent='LTR'
             directionNext='LTR'

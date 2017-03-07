@@ -9,7 +9,6 @@ import { setPostIdx, setProjIdx, setTransitionDirection } from '../../../store/a
 class NavCard extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
   }
 
   handleHomeClick(e) {
@@ -55,7 +54,7 @@ class NavCard extends Component {
   renderBackBtn() {
     return (
       <div
-        className={ `fa nav-btn ${ !this.props.offScreen ? 'disabled' : '' }` }
+        className={ `fa nav-btn back-btn ${ !this.props.offScreen ? 'disabled' : '' }` }
         onClick={ this.props.offScreen ? this.handleBackClick.bind(this) : null }
       >
         <span>&#xf053;</span>
@@ -66,7 +65,7 @@ class NavCard extends Component {
   renderForwardBtn() {
     return (
       <div
-        className={ `fa nav-btn ${ !this.props.onDeck ? 'disabled' : '' }` }
+        className={ `fa nav-btn forward-btn ${ !this.props.onDeck ? 'disabled' : '' }` }
         onClick={ this.props.onDeck ? this.handleForwardClick.bind(this) : null }
       >
         <span>&#xf054;</span>
