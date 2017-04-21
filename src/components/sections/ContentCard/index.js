@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { styles } from './styles.scss';
 
-
-// can probably achieve conditional animations by accessing lastPath prop from the App component (parent of About)
 export default class ContentCard extends Component {
   constructor(props) {
     super(props);

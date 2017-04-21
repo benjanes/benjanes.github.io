@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import ReactTransitionGroup from 'react-addons-transition-group';
 import AppBg from '../sections/AppBg';
+import InfoOverlay from '../sections/InfoOverlay';
 import { styles } from './styles.scss';
 
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { setShowOverlay } from '../../store/actions.js';
 
 class App extends Component {
   constructor(props) {
@@ -45,17 +48,26 @@ class App extends Component {
             isMediumSize: this.state.isMediumSize,
           }) }
         </ReactTransitionGroup>
+        <ReactTransitionGroup>
+          { this.props.isOverlayShown && <InfoOverlay detail={this.props.overlayDetail} setShowOverlay={this.props.setShowOverlay}/> }
+        </ReactTransitionGroup>
       </div>
     );
   }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ setShowOverlay }, dispatch);
 }
 
 function mapStateToProps({ rootState }) {
   return {
     postIdx: rootState.appData.postIdx,
     projIdx: rootState.appData.projIdx,
+    isOverlayShown: rootState.appData.isOverlayShown,
+    overlayDetail: rootState.appData.overlayDetail,
   };
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 

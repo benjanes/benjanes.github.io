@@ -1,0 +1,23 @@
+:local(.styles) {
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  position: fixed;
+  box-sizing: border-box;
+  margin: 20px;
+  padding: 16px;
+  background-color: #fff;
+  box-shadow: 0 0 40px 20px rgba(0,0,0,0.6);
+
+  .close-btn {
+    text-align: right;
+
+    button {
+      display: inline-block;
+      border: 1px solid #888;
+      border-radius: 0;
+      height: 26px;
+      width: 26px;
+      background-color: #fff;
+    }
+  }
+}

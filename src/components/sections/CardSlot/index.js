@@ -4,6 +4,8 @@ import { styles } from './styles.scss';
 
 import ContentCard from '../ContentCard';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { setShowOverlay, setOverlayDetail } from '../../../store/actions.js';
 
 const keyFrames = {
   current: {
@@ -26,14 +28,20 @@ class CardSlot extends Component {
 
     this.state = {
       next: null,
-      post: props.current
+      post: props.current,
     };
+
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.current.title !== this.state.post.title) {
       this.setState({ next: nextProps.current }, this.startTransition);
     }
+  }
+
+  componentWillUnmount() {
+    this.props.setShowOverlay(false);
   }
 
   startTransition() {
@@ -80,20 +88,24 @@ class CardSlot extends Component {
     });
   }
 
-  handleTouchStart() {
+  handleClick() {
     // pop open an overlay with the info
     // include a close btn on the overlay
     // use ReactTransitionGroup to render the overlay to fade in and out
     // set the state on redux store
     // listen within App component, render the overlay from there.
-    console.log('handle touch');
+    
+
+    // console.log(this.state.post);
+    this.props.setOverlayDetail(this.state.post);
+    this.props.setShowOverlay(true);
   }
 
   render() {
     return (
       <div
         className={ `${styles}` }
-        onTouchStart={ this.handleTouchStart }
+        onClick={ !this.props.isMediumSize && this.handleClick }
       >
         <div
           ref={ next => this.$next = next }
@@ -120,10 +132,14 @@ class CardSlot extends Component {
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ setShowOverlay, setOverlayDetail }, dispatch);
+}
+
 function mapStateToProps({ rootState }) {
   return {
     transitionDirection: rootState.appData.transitionDirection
   };
 }
 
-export default connect(mapStateToProps, null)(CardSlot);
+export default connect(mapStateToProps, mapDispatchToProps)(CardSlot);
