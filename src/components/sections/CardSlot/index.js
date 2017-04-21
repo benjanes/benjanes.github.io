@@ -46,16 +46,29 @@ class CardSlot extends Component {
     const currDelayKey = this.props.transitionDirection === 'forward' ? 'delayCurrent' : 'delayCurrentReverse';
     const nextDelayKey = this.props.transitionDirection === 'forward' ? 'delayNext' : 'delayNextReverse';
 
+    const mobileDir = this.props.transitionDirection === 'forward' ? 'TTB' : 'BTT';
+
     const currentKeyframes = keyFrames.current[this.props[currDirKey]];
     const nextKeyframes = keyFrames.next[this.props[nextDirKey]];
+
+    const mobileCurrKF = keyFrames.current[mobileDir];
+    const mobileNextKF = keyFrames.next[mobileDir];
+
     const currDelay = this.props[currDelayKey];
     const nextDelay = this.props[nextDelayKey];
 
     currentKeyframes[1].delay = currDelay;
     nextKeyframes[1].delay = nextDelay;
+    mobileCurrKF[1].delay = currDelay;
+    mobileNextKF[1].delay = nextDelay;
 
-    TweenMax.fromTo(this.$current, 0.25, currentKeyframes[0], currentKeyframes[1]);
-    TweenMax.fromTo(this.$next, 0.25, nextKeyframes[0], nextKeyframes[1]);
+    if (this.props.isMediumSize) {
+      TweenMax.fromTo(this.$current, 0.25, currentKeyframes[0], currentKeyframes[1]);
+      TweenMax.fromTo(this.$next, 0.25, nextKeyframes[0], nextKeyframes[1]);
+    } else {
+      TweenMax.fromTo(this.$current, 0.25, mobileCurrKF[0], mobileCurrKF[1]);
+      TweenMax.fromTo(this.$next, 0.25, mobileNextKF[0], mobileNextKF[1]);
+    }
     TweenMax.delayedCall(1, next, [], this);
   }
 
@@ -67,9 +80,21 @@ class CardSlot extends Component {
     });
   }
 
+  handleTouchStart() {
+    // pop open an overlay with the info
+    // include a close btn on the overlay
+    // use ReactTransitionGroup to render the overlay to fade in and out
+    // set the state on redux store
+    // listen within App component, render the overlay from there.
+    console.log('handle touch');
+  }
+
   render() {
     return (
-      <div className={ `${styles}` }>
+      <div
+        className={ `${styles}` }
+        onTouchStart={ this.handleTouchStart }
+      >
         <div
           ref={ next => this.$next = next }
           className='card-holder'
@@ -77,6 +102,7 @@ class CardSlot extends Component {
           <ContentCard
             type={ this.props.type }
             content={ this.state.next }
+            isMediumSize={ this.props.isMediumSize }
           />
         </div>
         <div
@@ -86,6 +112,7 @@ class CardSlot extends Component {
           <ContentCard
             type={ this.props.type }
             content={ this.state.post }
+            isMediumSize={ this.props.isMediumSize }
           />
         </div>
       </div>

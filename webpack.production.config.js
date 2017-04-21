@@ -46,7 +46,7 @@ module.exports = {
       {
         test: /\.scss$/,
         include: path.join(__dirname, 'src'),
-        loader: ExtractTextPlugin.extract('css!sass')
+        loader: ExtractTextPlugin.extract('css!postcss-loader!sass')
       },
       {
         test: /\.json?$/,
@@ -57,6 +57,6 @@ module.exports = {
   },
   plugins: plugins,
   postcss: [
-    require('autoprefixer')
+    require('autoprefixer')({ browser: ['last 4 versions'] })
   ]
 };

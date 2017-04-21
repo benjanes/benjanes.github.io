@@ -8,14 +8,25 @@ import { connect } from 'react-redux';
 class App extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-     lastPath: null
+      lastPath: null,
+      isMediumSize: window.innerWidth > 768 ? true : false,
     };
+
+    this.handleResize = this.handleResize.bind(this);
+    window.addEventListener('resize', this.handleResize);
   }
 
   componentWillReceiveProps(nextProps) {
    const lastPath = this.props.location.pathname;
    this.setState({ lastPath });
+  }
+
+  handleResize() {
+    const isMediumSize = window.innerWidth > 768 ? true : false;
+
+    if (!this.state.isMediumSize && isMediumSize || this.state.isMediumSize && !isMediumSize) this.setState({ isMediumSize });
   }
 
   render() {
@@ -30,7 +41,8 @@ class App extends Component {
             key: this.props.location.pathname,
             lastPath: this.state.lastPath,
             postIdx: this.props.postIdx,
-            projIdx: this.props.projIdx
+            projIdx: this.props.projIdx,
+            isMediumSize: this.state.isMediumSize,
           }) }
         </ReactTransitionGroup>
       </div>

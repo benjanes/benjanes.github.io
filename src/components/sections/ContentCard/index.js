@@ -32,18 +32,25 @@ export default class ContentCard extends Component {
     )
   }
 
+  renderAdditionalInfo() {
+    return (
+      <div className='addl-info'>
+        <div className='addl-info-inner'>
+          <p>{ this.props.content.desc }</p>
+          { this.props.type === 'post' && this.renderPostInfo() }
+          { this.props.type === 'project' && this.renderProjectLinks() }
+        </div>
+      </div>
+    )
+  }
+
   renderContent() {
     if (!this.props.content) return;
     return (
       <div className='card-container'>
         <h2>{ this.props.content.title }</h2>
-        <div className='addl-info'>
-          <div className='addl-info-inner'>
-            <p>{ this.props.content.desc }</p>
-            { this.props.type === 'post' && this.renderPostInfo() }
-            { this.props.type === 'project' && this.renderProjectLinks() }
-          </div>
-        </div>
+        { this.props.isMediumSize && this.renderAdditionalInfo() }
+        
       </div>
     );
   }

@@ -13,7 +13,6 @@ export default class Projects extends Component {
     super(props);
 
     this.state = {
-      projects: projects,
       isAnimating: true,
       offScreen: props.projIdx > 2,
       cardOne: projects[props.projIdx - 2],
@@ -103,6 +102,7 @@ export default class Projects extends Component {
             delayNext={ 0.75 }
             delayCurrentReverse={ 0 }
             delayNextReverse={ 0.25 }
+            isMediumSize={ this.props.isMediumSize }
           />
         </div>
         <div
@@ -116,6 +116,7 @@ export default class Projects extends Component {
             isAnimating={ this.state.isAnimating }
             onDeck={ this.state.onDeck }
             offScreen={ this.state.offScreen }
+            isMediumSize={ this.props.isMediumSize }
           />
         </div>
         <div
@@ -133,6 +134,7 @@ export default class Projects extends Component {
             delayNext={ 0.5 }
             delayCurrentReverse={ 0.25 }
             delayNextReverse={ 0.5 }
+            isMediumSize={ this.props.isMediumSize }
           />
         </div>
         <div
@@ -150,6 +152,7 @@ export default class Projects extends Component {
             delayNext={ 0.25 }
             delayCurrentReverse={ 0.5 }
             delayNextReverse={ 0.75 }
+            isMediumSize={ this.props.isMediumSize }
           />
         </div>
       </div>

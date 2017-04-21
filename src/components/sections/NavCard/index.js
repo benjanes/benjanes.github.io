@@ -76,12 +76,12 @@ class NavCard extends Component {
   render() {
     return (
       <div className={ `${styles} nav-card` }>
-        { this.props.homeAtTop && this.renderTitle() }
-        { this.props.homeAtTop && this.renderHomeBtn() }
+        { (this.props.homeAtTop || !this.props.isMediumSize) && this.renderTitle() }
+        { (this.props.homeAtTop || !this.props.isMediumSize) && this.renderHomeBtn() }
         { this.props.includeDirBtns && this.renderBackBtn() }
         { this.props.includeDirBtns && this.renderForwardBtn() }
-        { !this.props.homeAtTop && this.renderHomeBtn() }
-        { !this.props.homeAtTop && this.renderTitle() }
+        { !this.props.homeAtTop && !this.props.isMediumSize && this.renderHomeBtn() }
+        { !this.props.homeAtTop && !this.props.isMediumSize && this.renderTitle() }
       </div>
     );
   }
