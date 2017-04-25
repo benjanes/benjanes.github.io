@@ -38,3 +38,23 @@
     border: 1px solid #01D31B;
   }
 }
+
+@media (max-width: 768px) {
+  :local(.styles) {
+    height: 100%;
+
+    .card {
+      width: 100%;
+      height: 25%;
+      
+      &:nth-of-type(3) {
+        order: -2;
+      }
+
+    }
+
+    .nav-btn, .home-btn, .title {
+      height: 50%;
+    }
+  }
+}

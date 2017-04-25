@@ -71,6 +71,7 @@ export default class Contact extends Component {
           className='contact-panel'
         >
           <NavCard
+            isMediumSize={ this.props.isMediumSize }
             parent='contact'
             homeAtTop={ true }
           />

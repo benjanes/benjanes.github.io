@@ -110,6 +110,7 @@ export default class Blog extends Component {
           className='card'
         >
           <CardSlot
+            isMediumSize={ this.props.isMediumSize }
             type='post'
             current={ this.state.cardThree }
             directionCurrent='LTR'
@@ -127,6 +128,7 @@ export default class Blog extends Component {
           className='card'
         >
           <CardSlot
+            isMediumSize={ this.props.isMediumSize }
             type='post'
             current={ this.state.cardTwo }
             directionCurrent='TTB'
@@ -144,6 +146,7 @@ export default class Blog extends Component {
           className='card'
         >
           <NavCard
+            isMediumSize={ this.props.isMediumSize }
             parent='blog'
             homeAtTop={ false }
             includeDirBtns={ true }
@@ -157,6 +160,7 @@ export default class Blog extends Component {
           className='card'
         >
           <CardSlot
+            isMediumSize={ this.props.isMediumSize }
             type='post'
             current={ this.state.cardOne }
             directionCurrent='TTB'
