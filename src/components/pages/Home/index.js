@@ -55,6 +55,12 @@ export default class Home extends Component {
           .to(this.$card3, 0.5, { x: '0%' }, 0.2)
           .to(this.$card4, 0.4, { x: '0%' }, 0);
       }
+    } else {
+      let cards = [this.$card3, this.$card4, this.$card2, this.$card1];
+      let delay = lastPath === '/contact' ? 0.15 : 0;
+      tl
+        .set(cards, { x: '100%', backfaceVisibility: 'hidden' })
+        .staggerTo(cards, 0.4, { x: '0%', ease: Cubic.easeInOut, delay: delay }, 0.15);
     }
 
     tl.call(next);
