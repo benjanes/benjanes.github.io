@@ -11,17 +11,20 @@ export default class About extends Component {
   componentWillEnter(next) {
     const tl = new TimelineMax();
 
-    tl
-      .set(this.$btn, { transformOrigin: '0% 50%', rotationY: -91, backfaceVisibility: 'hidden' })
-      .set(this.$card1, { transformOrigin: '50% 100%', rotationX: 91, backfaceVisibility: 'hidden' })
-      .set(this.$card2, { transformOrigin: '0% 50%', rotationY: 91, backfaceVisibility: 'hidden' })
-      .set(this.$card3, { transformOrigin: '50% 0%', rotationX: -91, backfaceVisibility: 'hidden' })
-      .set(this.$card4, { transformOrigin: '100% 50%', rotationY: -91, backfaceVisibility: 'hidden' })
-      .to(this.$card3, 0.25, { rotationX: 0 }, '+=1')
-      .to(this.$card4, 0.25, { rotationY: 0 })
-      .to(this.$card1, 0.25, { rotationX: 0 })
-      .to(this.$card2, 0.25, { rotationY: 0 })
-      .call(next);
+    if (this.props.isMediumSize) {
+      tl
+        .set(this.$btn, { transformOrigin: '0% 50%', rotationY: -91, backfaceVisibility: 'hidden' })
+        .set(this.$card1, { transformOrigin: '50% 100%', rotationX: 91, backfaceVisibility: 'hidden' })
+        .set(this.$card2, { transformOrigin: '0% 50%', rotationY: 91, backfaceVisibility: 'hidden' })
+        .set(this.$card3, { transformOrigin: '50% 0%', rotationX: -91, backfaceVisibility: 'hidden' })
+        .set(this.$card4, { transformOrigin: '100% 50%', rotationY: -91, backfaceVisibility: 'hidden' })
+        .to(this.$card3, 0.25, { rotationX: 0 }, '+=1')
+        .to(this.$card4, 0.25, { rotationY: 0 })
+        .to(this.$card1, 0.25, { rotationX: 0 })
+        .to(this.$card2, 0.25, { rotationY: 0 });
+    }
+    
+    tl.call(next);
   }
 
   componentDidEnter() {
@@ -30,19 +33,28 @@ export default class About extends Component {
 
   componentWillLeave(next) {
     const tl = new TimelineMax();
+    const el = ReactDOM.findDOMNode(this);
 
     tl
       .set(this.$btn, { transformOrigin: '0% 50%', backfaceVisibility: 'hidden' })
-      .set(this.$card1, { transformOrigin: '50% 100%', rotationX: 0, backfaceVisibility: 'hidden' })
-      .set(this.$card2, { transformOrigin: '0% 50%', rotationY: 0, backfaceVisibility: 'hidden' })
-      .set(this.$card3, { transformOrigin: '50% 0%', rotationX: 0, backfaceVisibility: 'hidden' })
-      .set(this.$card4, { transformOrigin: '100% 50%', rotationY: 0, backfaceVisibility: 'hidden' })
-      .to(this.$card2, 0.25, { rotationY: 91 })
-      .to(this.$card1, 0.25, { rotationX: 91 })
-      .to(this.$card4, 0.25, { rotationY: -91 })
-      .to(this.$card3, 0.25, { rotationX: -91 })
-      .to(this.$btn, 0.4, { rotationY: -91 }, 0)
-      .call(next);
+      .to(this.$btn, 0.4, { rotationY: -91 }, 0);
+    
+    if (this.props.isMediumSize) {
+      tl
+        .set(this.$card1, { transformOrigin: '50% 100%', rotationX: 0, backfaceVisibility: 'hidden' })
+        .set(this.$card2, { transformOrigin: '0% 50%', rotationY: 0, backfaceVisibility: 'hidden' })
+        .set(this.$card3, { transformOrigin: '50% 0%', rotationX: 0, backfaceVisibility: 'hidden' })
+        .set(this.$card4, { transformOrigin: '100% 50%', rotationY: 0, backfaceVisibility: 'hidden' })
+        .to(this.$card2, 0.25, { rotationY: 91 })
+        .to(this.$card1, 0.25, { rotationX: 91 })
+        .to(this.$card4, 0.25, { rotationY: -91 })
+        .to(this.$card3, 0.25, { rotationX: -91 });
+        
+    } else {
+      tl.set(el, { zIndex: -1 });
+    }
+    
+    tl.call(next, [], null, 1);
   }
 
   renderContent() {
@@ -67,24 +79,25 @@ export default class About extends Component {
         >
           { this.renderContent() }
         </div>
-        <div
-          ref={ card => this.$card2 = card }
-          className='about-panel'
-        >
-          { this.renderContent() }
-        </div>
-        <div
+          
+        { this.props.isMediumSize && <div
+            ref={ card => this.$card2 = card }
+            className='about-panel'
+          >
+            { this.renderContent() }
+          </div> }
+        { this.props.isMediumSize && <div
           ref={ card => this.$card4 = card }
           className='about-panel'
         >
           { this.renderContent() }
-        </div>
-        <div
+        </div> }
+        { this.props.isMediumSize && <div
           ref={ card => this.$card3 = card }
           className='about-panel'
         >
           { this.renderContent() }
-        </div>
+        </div> }
         <div
           className='about-nav-btn fa'
           ref={ btn => this.$btn = btn }
