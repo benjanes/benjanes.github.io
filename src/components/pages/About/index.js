@@ -54,7 +54,7 @@ export default class About extends Component {
       tl.set(el, { zIndex: -1 });
     }
     
-    tl.call(next, [], null, 1);
+    tl.call(next, [], null, 1.4);
   }
 
   renderContent() {
@@ -72,7 +72,7 @@ export default class About extends Component {
 
   render() {
     return (
-      <div className={ `${styles}` }>
+      <div className={ `${styles} page-wrapper` }>
         <div
           ref={ card => this.$card1 = card }
           className='about-panel'

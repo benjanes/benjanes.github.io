@@ -9,16 +9,16 @@ import { setShowOverlay, setOverlayDetail } from '../../../store/actions.js';
 
 const keyFrames = {
   current: {
-    'LTR': [{ x: '0%', y: '0%' }, { x: '100%', y: '0%', ease: Circ.easeInOut }],
-    'RTL': [{ x: '0%', y: '0%' }, { x: '-100%', y: '0%', ease: Circ.easeInOut }],
-    'TTB': [{ x: '0%', y: '0%' }, { x: '0%', y: '100%', ease: Circ.easeInOut }],
-    'BTT': [{ x: '0%', y: '0%' }, { x: '0%', y: '-100%', ease: Circ.easeInOut }]
+    'LTR': [{ x: '0%', y: '0%' }, { x: '100%', y: '0%', ease: Cubic.easeInOut }],
+    'RTL': [{ x: '0%', y: '0%' }, { x: '-100%', y: '0%', ease: Cubic.easeInOut }],
+    'TTB': [{ x: '0%', y: '0%' }, { x: '0%', y: '100%', ease: Cubic.easeInOut }],
+    'BTT': [{ x: '0%', y: '0%' }, { x: '0%', y: '-100%', ease: Cubic.easeInOut }]
   },
   next: {
-    'LTR': [{ x: '-100%', y: '0%' }, { x: '0%', y: '0%', ease: Circ.easeInOut }],
-    'RTL': [{ x: '100%', y: '0%' }, { x: '0%', y: '0%', ease: Circ.easeInOut }],
-    'TTB': [{ x: '0%', y: '-100%' }, { x: '0%', y: '0%', ease: Circ.easeInOut }],
-    'BTT': [{ x: '0%', y: '100%' }, { x: '0%', y: '0%', ease: Circ.easeInOut }]
+    'LTR': [{ x: '-100%', y: '0%' }, { x: '0%', y: '0%', ease: Cubic.easeInOut }],
+    'RTL': [{ x: '100%', y: '0%' }, { x: '0%', y: '0%', ease: Cubic.easeInOut }],
+    'TTB': [{ x: '0%', y: '-100%' }, { x: '0%', y: '0%', ease: Cubic.easeInOut }],
+    'BTT': [{ x: '0%', y: '100%' }, { x: '0%', y: '0%', ease: Cubic.easeInOut }]
   }
 };
 
@@ -45,7 +45,6 @@ class CardSlot extends Component {
   }
 
   startTransition() {
-    console.log('start transition...');
     const next = this.endTransition;
     const tl = new TimelineMax();
     
@@ -71,11 +70,11 @@ class CardSlot extends Component {
     mobileNextKF[1].delay = nextDelay;
 
     if (this.props.isMediumSize) {
-      TweenMax.fromTo(this.$current, 0.25, currentKeyframes[0], currentKeyframes[1]);
-      TweenMax.fromTo(this.$next, 0.25, nextKeyframes[0], nextKeyframes[1]);
+      TweenMax.fromTo(this.$current, 0.2, currentKeyframes[0], currentKeyframes[1]);
+      TweenMax.fromTo(this.$next, 0.2, nextKeyframes[0], nextKeyframes[1]);
     } else {
-      TweenMax.fromTo(this.$current, 0.25, mobileCurrKF[0], mobileCurrKF[1]);
-      TweenMax.fromTo(this.$next, 0.25, mobileNextKF[0], mobileNextKF[1]);
+      TweenMax.fromTo(this.$current, 0.15, mobileCurrKF[0], mobileCurrKF[1]);
+      TweenMax.fromTo(this.$next, 0.15, mobileNextKF[0], mobileNextKF[1]);
     }
     TweenMax.delayedCall(1, next, [], this);
   }
@@ -89,14 +88,6 @@ class CardSlot extends Component {
   }
 
   handleClick() {
-    // pop open an overlay with the info
-    // include a close btn on the overlay
-    // use ReactTransitionGroup to render the overlay to fade in and out
-    // set the state on redux store
-    // listen within App component, render the overlay from there.
-    
-
-    // console.log(this.state.post);
     this.props.setOverlayDetail(this.state.post);
     this.props.setShowOverlay(true);
   }

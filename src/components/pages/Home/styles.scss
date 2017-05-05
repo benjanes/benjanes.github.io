@@ -1,12 +1,4 @@
 :local(.styles) {
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-  left: 0;
-  top: 0;
-  display: flex;
-  flex-wrap: wrap;
-
   .menu-item {
     backface-visibility: hidden;
     width: 50%;
@@ -16,27 +8,33 @@
   }
 
   .menu-item:nth-of-type(1), .menu-item:nth-of-type(4) {
-    background: repeating-linear-gradient(0deg, #fff, #000 1vh, #fff 2vh);
+    background: repeating-linear-gradient(0deg, #fff, #ccc 1vh, #fff 2vh);
+    &:hover {
+      background: repeating-linear-gradient(0deg, #fff, #000 1vh, #fff 2vh);
+    }
   }
 
   .menu-item:nth-of-type(2), .menu-item:nth-of-type(3) {
-    background: repeating-linear-gradient(90deg, #fff, #000 1vw, #fff 2vw);
+    background: repeating-linear-gradient(90deg, #fff, #ccc 1vw, #fff 2vw);
+    &:hover {
+      background: repeating-linear-gradient(90deg, #fff, #000 1vw, #fff 2vw);
+    }
   }
 
   .menu-item:nth-of-type(1) {
-    animation: slideBgDown 0.5s linear infinite;
+    animation: slideBgDown 1s linear infinite;
   }
 
   .menu-item:nth-of-type(2) {
-    animation: slideBgLeft 0.5s linear infinite;
+    animation: slideBgLeft 1s linear infinite;
   }
 
   .menu-item:nth-of-type(3) {
-    animation: slideBgRight 0.5s linear infinite;
+    animation: slideBgRight 1s linear infinite;
   }
 
   .menu-item:nth-of-type(4) {
-    animation: slideBgUp 0.5s linear infinite;
+    animation: slideBgUp 1s linear infinite;
   }
 }
 
@@ -49,13 +47,19 @@
       height: 25%;
       
       &:nth-of-type(1), &:nth-of-type(3) {
-        background: repeating-linear-gradient(0deg, #fff, #000 1vh, #fff 2vh);
-        animation: slideBgDown 0.5s linear infinite;
+        background: repeating-linear-gradient(0deg, #fff, #ccc 1vh, #fff 2vh);
+        animation: slideBgDown 1s linear infinite;
+        &:hover {
+          background: repeating-linear-gradient(0deg, #fff, #ccc 1vh, #fff 2vh);
+        }
       }
 
       &:nth-of-type(2), &:nth-of-type(4) {
-        background: repeating-linear-gradient(0deg, #fff, #000 1vh, #fff 2vh);
-        animation: slideBgUp 0.5s linear infinite;
+        background: repeating-linear-gradient(0deg, #fff, #ccc 1vh, #fff 2vh);
+        animation: slideBgUp 1s linear infinite;
+        &:hover {
+          background: repeating-linear-gradient(0deg, #fff, #ccc 1vh, #fff 2vh);
+        }
       }
 
     }

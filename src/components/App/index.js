@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ReactTransitionGroup from 'react-addons-transition-group';
-import AppBg from '../sections/AppBg';
 import InfoOverlay from '../sections/InfoOverlay';
 import { styles } from './styles.scss';
 
@@ -35,7 +34,9 @@ class App extends Component {
   render() {
     return (
       <div className={ `${styles}` }>
-        <AppBg />
+        <header className='site-header'>
+          <h1>www.benjanes.com</h1>
+        </header>
         <ReactTransitionGroup
           component='div'
           className='main-transition'
@@ -51,6 +52,7 @@ class App extends Component {
         <ReactTransitionGroup>
           { this.props.isOverlayShown && <InfoOverlay detail={this.props.overlayDetail} setShowOverlay={this.props.setShowOverlay}/> }
         </ReactTransitionGroup>
+        <div className='app-bg'></div>
       </div>
     );
   }

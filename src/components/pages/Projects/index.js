@@ -6,8 +6,6 @@ import NavCard from '../../sections/NavCard';
 import CardSlot from '../../sections/CardSlot';
 import projects from '../../../content/projects/projects.json';
 
-// import { connect } from 'react-redux';
-
 const maxProjIdx = projects.length - 1;
 
 export default class Projects extends Component {
@@ -105,7 +103,7 @@ export default class Projects extends Component {
 
   render() {
     return (
-      <div className={ `${styles}` }>
+      <div className={ `${styles} page-wrapper` }>
         <div
           ref={ card => this.$card1 = card }
           className='card'

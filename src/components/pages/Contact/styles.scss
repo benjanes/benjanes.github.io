@@ -1,12 +1,4 @@
 :local(.styles) {
-  position: fixed;
-  display: flex;
-  flex-wrap: wrap;
-  width: 100vw;
-  height: 100vh;
-  left: 0;
-  top: 0;
-
   .contact-panel {
     position: relative;
     width: 50%;
@@ -58,8 +50,8 @@
   }
 
   .nav-card {
-    background: repeating-linear-gradient(0deg, #fff, #000 1vh, #fff 2vh);
-    animation: slideBgDown 0.5s linear infinite;
+    background: repeating-linear-gradient(0deg, #fff, #ccc 1vh, #fff 2vh);
+    animation: slideBgDown 1s linear infinite;
   }
 
   .home-btn {

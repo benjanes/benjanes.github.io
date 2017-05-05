@@ -4,7 +4,6 @@ import { styles } from './styles.scss';
 
 import NavCard from '../../sections/NavCard';
 
-// can probably achieve conditional animations by accessing lastPath prop from the App component (parent of About)
 export default class Contact extends Component {
   constructor(props) {
     super(props);
@@ -74,7 +73,7 @@ export default class Contact extends Component {
       { type: 'gh', link: 'https://github.com/benjanes', icon: 'fa-github' },
       { type: 'cp', link: 'http://codepen.io/benjanes', icon: 'fa-codepen' }
     ];
-    return <div className='contact-btn-container'>{ contacts.map(this.renderBtn.bind(this)) }</div>;
+    return <div className='contact-btn-container'>{ contacts.map(this.renderBtn, this) }</div>;
   }
 
   renderBtn(btn, idx) {
@@ -90,7 +89,7 @@ export default class Contact extends Component {
 
   render() {
     return (
-      <div className={ `${styles}` }>
+      <div className={ `${styles} page-wrapper` }>
         <div
           ref={ panel1 => this.$panel1 = panel1 }
           className='contact-panel'

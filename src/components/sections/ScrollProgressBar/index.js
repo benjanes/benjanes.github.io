@@ -8,21 +8,19 @@ export default class ScrollProgressBar extends Component {
     this.state = {
       ctx: null,
       canvasHeight: 0,
-      scrollableHeight: null,
+      scrollableHeight: 0,
       d: 0,
       triangles: []
     };
 
-    // this.handleScroll = this.handleScroll.bind(this);
-    // this.animateProgressBar = this.animateProgressBar.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
+    this.drawProgressBar = this.drawProgressBar.bind(this);
+    this.initializeProgressBar = this.initializeProgressBar.bind(this);
   }
 
   componentDidMount() {
-    console.log('bar did mount');
-    setTimeout(this.initializeProgressBar.bind(this), 50);
-    // this.initializeProgressBar();
-
-    window.addEventListener('scroll', this.handleScroll.bind(this));
+    setTimeout(this.initializeProgressBar, 50);
+    window.addEventListener('scroll', this.handleScroll);
   }
 
   initializeProgressBar() {
@@ -30,7 +28,6 @@ export default class ScrollProgressBar extends Component {
     let canvasHeight = window.innerHeight;
     let documentHeight = document.body.offsetHeight;
     let scrollableHeight = documentHeight - canvasHeight;
-    // console.log(documentHeight);
     let d = canvasHeight / (this.props.maxRows - 1);
 
     this.setState({
@@ -38,24 +35,21 @@ export default class ScrollProgressBar extends Component {
       canvasHeight,
       scrollableHeight,
       d
-    }, () => {
-      this.animateProgressBar();
-      // console.log(this.state.scrollableHeight);
-    });
+    }, this.drawProgressBar);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll.bind(this));
+    window.removeEventListener('scroll', this.handleScroll);
     cancelAnimationFrame(this.rAF);
   }
 
-  addTriangle(rowIdx) {
-    const triangles = this.state.triangles;
+  addTriangle(rowIdx, triangles) {
     triangles[triangles.length] = new Triangle(rowIdx, this.state.d);
+    return triangles;
   }
 
   handleScroll(e) {
-    const triangles = this.state.triangles;
+    let triangles = this.state.triangles.slice();
     const scrollPos = window.scrollY;
     const scrollProportion = scrollPos / this.state.scrollableHeight;
     const numRows = Math.ceil(scrollProportion * this.props.maxRows);
@@ -66,13 +60,14 @@ export default class ScrollProgressBar extends Component {
       }
     } else if (triangles.length < numRows) {
       for (let i = triangles.length; i < numRows; i++) {
-        this.addTriangle(i);
+        triangles = this.addTriangle(i, triangles);
       }
     }
+
+    this.setState({ triangles });
   }
 
-  animateProgressBar() {
-    // const animateProgressBar = this.animateProgressBar;
+  drawProgressBar() {
     const ctx = this.state.ctx;
     const triangles = this.state.triangles;
     const d = this.state.d;
@@ -80,7 +75,7 @@ export default class ScrollProgressBar extends Component {
     ctx.clearRect(0, 0, this.$canvas.width, this.$canvas.height);
     drawTriangles(triangles, ctx, d);
 
-    this.rAF = requestAnimFrame(this.animateProgressBar.bind(this));
+    this.rAF = requestAnimationFrame(this.drawProgressBar);
   }
 
   render() {

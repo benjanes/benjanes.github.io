@@ -34,7 +34,7 @@ export default class Home extends Component {
           .to(this.$card2, 0.25, { rotationX: 0 });
       } else if (lastPath === '/about') {
         tl
-          .to(this.$card2, 0.25, { rotationX: 0 }, '+=1')
+          .to(this.$card2, 0.25, { rotationX: 0 }, '+=1.4')
           .to(this.$card1, 0.25, { rotationY: 0 })
           .to(this.$card4, 0.25, { rotationX: 0 })
           .to(this.$card3, 0.25, { rotationY: 0 });
@@ -50,10 +50,10 @@ export default class Home extends Component {
           .set(this.$card2, { rotationX: 0, x: '100%' })
           .set(this.$card3, { rotationY: 0, x: '100%' })
           .set(this.$card4, { rotationX: 0, x: '-100%' })
-          .to(this.$card1, 0.45, { x: '0%' }, 0.15)
-          .to(this.$card2, 0.4, { x: '0%' }, 0.05)
-          .to(this.$card3, 0.5, { x: '0%' }, 0.2)
-          .to(this.$card4, 0.4, { x: '0%' }, 0);
+          .to(this.$card1, 0.45, { x: '0%' }, 0.55)
+          .to(this.$card2, 0.4, { x: '0%' }, 0.45)
+          .to(this.$card3, 0.5, { x: '0%' }, 0.6)
+          .to(this.$card4, 0.4, { x: '0%' }, 0.4);
       }
     } else {
       let cards = [this.$card3, this.$card4, this.$card2, this.$card1];
@@ -120,7 +120,7 @@ export default class Home extends Component {
 
   render() {
     return (
-      <div className={ `${styles}` }>
+      <div className={ `${styles} page-wrapper` }>
         <div
           ref={ card => this.$card1 = card }
           className='menu-item'

@@ -23,6 +23,12 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
+
+    &:hover {
+      &:after {
+        background: repeating-linear-gradient(90deg, #fff, #000 0.5vw, #fff 1vw)
+      }
+    }
   }
 
   .nav-btn.disabled {
@@ -37,15 +43,15 @@
     width: 100%;
     height: 100%;
     z-index: -1;
-    background: repeating-linear-gradient(90deg, #fff, #000 0.5vw, #fff 1vw)
+    background: repeating-linear-gradient(90deg, #fff, #ccc 0.5vw, #fff 1vw)
   }
 
   .back-btn:after {
-    animation: slideBgLeft 0.5s linear infinite;
+    animation: slideBgLeft 0.75s linear infinite;
   }
 
   .forward-btn:after {
-    animation: slideBgRight 0.5s linear infinite;
+    animation: slideBgRight 0.75s linear infinite;
   }
 
   .home-btn {

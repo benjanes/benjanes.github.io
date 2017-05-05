@@ -12,7 +12,7 @@ tags: ["Haskell", "currying", "Javascript", "Functional Programming"]
 example of partial application...
 evaluation left to right...
 
-I've been having a blast working my way through the excellent [Learn You a Haskell for Great Good](link) in my spare time. I don't know that I'll ever take my Haskell skills beyond the realm of toy problems, but the process of learning the language has already had an impact on how I think about writing Javascript, the main language that I use at work. I'd like to use this space to record first impressions of some of the fundamentals of Haskell (and perhaps of functional programming in general), and how these concepts map to Javascript.
+I've been having a blast working my way through the excellent [Learn You a Haskell for Great Good](http://learnyouahaskell.com/) in my spare time. I don't know that I'll ever take my Haskell skills beyond the realm of toy problems, but the process of learning the language has already had an impact on how I think about writing Javascript, the main language that I use at work. I'd like to use this space to record first impressions of some of the fundamentals of Haskell (and perhaps of functional programming in general), and how these concepts map to Javascript.
 
 The first thing I noticed when looking at Haskell type definitions (already a foreign concept for anyone who has JS as their first language) was... a lot of arrows. "That's a lot of function returns for one simple function," I thought. Take for example this function that adds 3 integers:
 

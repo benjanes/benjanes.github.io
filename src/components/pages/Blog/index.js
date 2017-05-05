@@ -50,17 +50,17 @@ export default class Blog extends Component {
           .to(this.$card3, 0.25, { rotationX: 0 });
       } else {
         tl
-          .fromTo(this.$card1, 0.45, { x: '-100%' }, { x: '0%' }, 0.15)
-          .fromTo(this.$card2, 0.4, { x: '100%' }, { x: '0%' }, 0.05)
-          .fromTo(this.$card3, 0.5, { x: '100%' }, { x: '0%' }, 0.2)
-          .fromTo(this.$card4, 0.4, { x: '-100%' }, { x: '0%' }, 0);
-          // add a fixed duration here and randomize the delays and durations
+          .fromTo(this.$card1, 0.45, { x: '-100%' }, { x: '0%' }, 0.55)
+          .fromTo(this.$card2, 0.4, { x: '100%' }, { x: '0%' }, 0.45)
+          .fromTo(this.$card3, 0.5, { x: '100%' }, { x: '0%' }, 0.6)
+          .fromTo(this.$card4, 0.4, { x: '-100%' }, { x: '0%' }, 0.4);
       }
     } else {
       let cards = [this.$card4, this.$card1, this.$card2, this.$card3];
+      let delay = this.props.lastPath === '/' ? 0 : 0.45;
       tl
         .set(cards, { x: '-100%', backfaceVisibility: 'hidden' })
-        .staggerTo(cards, 0.4, { x: '0%', ease: Cubic.easeInOut }, 0.15);
+        .staggerTo(cards, 0.4, { x: '0%', ease: Cubic.easeInOut }, 0.15, delay);
     }
     
     tl.call(next);
@@ -119,7 +119,7 @@ export default class Blog extends Component {
 
   render() {
     return (
-      <div className={ `${styles}` }>
+      <div className={ `${styles} page-wrapper` }>
         <div
           ref={ card => this.$card1 = card }
           className='card'

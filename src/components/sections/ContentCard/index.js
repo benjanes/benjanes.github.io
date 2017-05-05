@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ProjectLinks from '../ProjectLinks';
 import { Link } from 'react-router';
 import { styles } from './styles.scss';
 
@@ -11,32 +12,13 @@ export default class ContentCard extends Component {
     return <p>[{ this.props.content.tags.reduce((str, tag) => `${str}, ${tag}`) }]</p>;
   }
 
-  renderProjectLinks() {
-    const links = [];
-    if (this.props.content.projLink) links.push({ type: 'project', href: this.props.content.projLink });
-    if (this.props.content.ghLink) links.push({ type: 'github', href: this.props.content.ghLink });
-    if (this.props.content.cpLink) links.push({ type: 'codepen', href: this.props.content.cpLink });
-
-    return (
-      <div>
-        { links.map(link => {
-          return (
-            <a href={ link.href } key={ link.type }>
-              <i className={ `fa fa-${link.type}` }></i>
-            </a>
-          )
-        })}
-      </div>
-    )
-  }
-
   renderAdditionalInfo() {
     return (
       <div className='addl-info'>
         <div className='addl-info-inner'>
           <p>{ this.props.content.desc }</p>
           { this.props.type === 'post' && this.renderPostInfo() }
-          { this.props.type === 'project' && this.renderProjectLinks() }
+          { this.props.type === 'project' && <ProjectLinks content={ this.props.content } /> }
         </div>
       </div>
     )
