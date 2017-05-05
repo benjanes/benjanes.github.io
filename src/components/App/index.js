@@ -52,7 +52,7 @@ class App extends Component {
         <ReactTransitionGroup>
           { this.props.isOverlayShown && <InfoOverlay detail={this.props.overlayDetail} setShowOverlay={this.props.setShowOverlay}/> }
         </ReactTransitionGroup>
-        <div className='app-bg'></div>
+        <div className={`app-bg ${ this.props.location.pathname ? this.props.location.pathname.slice(1) : '' }`}></div>
       </div>
     );
   }

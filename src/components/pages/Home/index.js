@@ -22,28 +22,28 @@ export default class Home extends Component {
       
       if (lastPath === '/contact') {
         tl
-          .to(this.$card4, 0.25, { rotationX: 0 }, '+=1')
-          .to(this.$card3, 0.25, { rotationY: 0 })
-          .to(this.$card2, 0.25, { rotationX: 0 })
-          .to(this.$card1, 0.25, { rotationY: 0 });
+          .to(this.$card4, 0.25, { rotationX: 0, ease: Cubic.easeOut }, '+=1')
+          .to(this.$card3, 0.25, { rotationY: 0, ease: Cubic.easeOut })
+          .to(this.$card2, 0.25, { rotationX: 0, ease: Cubic.easeOut })
+          .to(this.$card1, 0.25, { rotationY: 0, ease: Cubic.easeOut });
       } else if (lastPath === '/projects') {
         tl
-          .to(this.$card1, 0.25, { rotationY: 0 }, '+=1')
-          .to(this.$card4, 0.25, { rotationX: 0 })
-          .to(this.$card3, 0.25, { rotationY: 0 })
-          .to(this.$card2, 0.25, { rotationX: 0 });
+          .to(this.$card1, 0.25, { rotationY: 0, ease: Cubic.easeOut }, '+=1')
+          .to(this.$card4, 0.25, { rotationX: 0, ease: Cubic.easeOut })
+          .to(this.$card3, 0.25, { rotationY: 0, ease: Cubic.easeOut })
+          .to(this.$card2, 0.25, { rotationX: 0, ease: Cubic.easeOut });
       } else if (lastPath === '/about') {
         tl
-          .to(this.$card2, 0.25, { rotationX: 0 }, '+=1.4')
-          .to(this.$card1, 0.25, { rotationY: 0 })
-          .to(this.$card4, 0.25, { rotationX: 0 })
-          .to(this.$card3, 0.25, { rotationY: 0 });
+          .to(this.$card2, 0.25, { rotationX: 0, ease: Cubic.easeOut }, '+=1.4')
+          .to(this.$card1, 0.25, { rotationY: 0, ease: Cubic.easeOut })
+          .to(this.$card4, 0.25, { rotationX: 0, ease: Cubic.easeOut })
+          .to(this.$card3, 0.25, { rotationY: 0, ease: Cubic.easeOut });
       } else if (lastPath === '/blog') {
         tl
-          .to(this.$card3, 0.25, { rotationY: 0 }, '+=1')
-          .to(this.$card2, 0.25, { rotationX: 0 })
-          .to(this.$card1, 0.25, { rotationY: 0 })
-          .to(this.$card4, 0.25, { rotationX: 0 });
+          .to(this.$card3, 0.25, { rotationY: 0, ease: Cubic.easeOut }, '+=1')
+          .to(this.$card2, 0.25, { rotationX: 0, ease: Cubic.easeOut })
+          .to(this.$card1, 0.25, { rotationY: 0, ease: Cubic.easeOut })
+          .to(this.$card4, 0.25, { rotationX: 0, ease: Cubic.easeOut });
       } else {
         tl
           .set(this.$card1, { rotationY: 0, x: '-100%' })
@@ -79,28 +79,28 @@ export default class Home extends Component {
         
       if (nextPath === '/contact') {
         tl
-          .to(this.$card1, 0.25, { rotationY: -91 })
-          .to(this.$card2, 0.25, { rotationX: 91 })
-          .to(this.$card3, 0.25, { rotationY: 91 })
-          .to(this.$card4, 0.25, { rotationX: -91 });
+          .to(this.$card1, 0.25, { rotationY: -91, ease: Power2.easeInOut })
+          .to(this.$card2, 0.25, { rotationX: 91, ease: Power2.easeInOut })
+          .to(this.$card3, 0.25, { rotationY: 91, ease: Power2.easeInOut })
+          .to(this.$card4, 0.25, { rotationX: -91, ease: Power2.easeInOut });
       } else if (nextPath === '/projects') {
         tl
-          .to(this.$card2, 0.25, { rotationX: 91 })
-          .to(this.$card3, 0.25, { rotationY: 91 })
-          .to(this.$card4, 0.25, { rotationX: -91 })
-          .to(this.$card1, 0.25, { rotationY: -91 });
+          .to(this.$card2, 0.25, { rotationX: 91, ease: Power2.easeInOut })
+          .to(this.$card3, 0.25, { rotationY: 91, ease: Power2.easeInOut })
+          .to(this.$card4, 0.25, { rotationX: -91, ease: Power2.easeInOut })
+          .to(this.$card1, 0.25, { rotationY: -91, ease: Power2.easeInOut });
       } else if (nextPath === '/about') {
         tl
-          .to(this.$card3, 0.25, { rotationY: 91 })
-          .to(this.$card4, 0.25, { rotationX: -91 })
-          .to(this.$card1, 0.25, { rotationY: -91 })
-          .to(this.$card2, 0.25, { rotationX: 91 });
+          .to(this.$card3, 0.25, { rotationY: 91, ease: Power2.easeInOut })
+          .to(this.$card4, 0.25, { rotationX: -91, ease: Power2.easeInOut })
+          .to(this.$card1, 0.25, { rotationY: -91, ease: Power2.easeInOut })
+          .to(this.$card2, 0.25, { rotationX: 91, ease: Power2.easeInOut });
       } else if (nextPath === '/blog') {
         tl
-          .to(this.$card4, 0.25, { rotationX: -91 })
-          .to(this.$card1, 0.25, { rotationY: -91 })
-          .to(this.$card2, 0.25, { rotationX: 91 })
-          .to(this.$card3, 0.25, { rotationY: 91 });
+          .to(this.$card4, 0.25, { rotationX: -91, ease: Power2.easeInOut })
+          .to(this.$card1, 0.25, { rotationY: -91, ease: Power2.easeInOut })
+          .to(this.$card2, 0.25, { rotationX: 91, ease: Power2.easeInOut })
+          .to(this.$card3, 0.25, { rotationY: 91, ease: Power2.easeInOut });
       } else {
         tl
           .fromTo(this.$card1, 0.45, { x: '0%' }, { x: '-100%', ease: Power2.easeInOut }, 0.15)
