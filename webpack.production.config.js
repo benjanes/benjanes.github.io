@@ -57,6 +57,6 @@ module.exports = {
   },
   plugins: plugins,
   postcss: [
-    require('autoprefixer')({ browser: ['last 4 versions'] })
+    require('autoprefixer')({ browsers: ['last 4 versions'] })
   ]
 };
