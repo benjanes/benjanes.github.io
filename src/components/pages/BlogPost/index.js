@@ -14,7 +14,6 @@ export default class BlogPost extends Component {
     const tl = new TimelineMax();
 
     if (this.props.lastPath === '/blog') {
-      console.log('enter from blog');
       tl
         .set([this.$btn1, this.$btn2], { transformOrigin: '0% 50%', rotationY: -91, backfaceVisibility: 'hidden' })
         .to(this.$btn1, 0.4, { rotationY: 0 }, '+=1')
@@ -31,11 +30,9 @@ export default class BlogPost extends Component {
     let delay = 1;
 
     if (/\/4 digits at start of string\//.test(this.props.lastPath)) {
-      console.log('leave to another post');
       delay = 0.4;
       tl.to(el, 0.4, { opacity: 0 });
     } else {
-      console.log('leave to elsewhere');
       tl
         .set([this.$btn1, this.$btn2], { transformOrigin: '0% 50%', rotationY: 0, backfaceVisibility: 'hidden' })
         .set(el, { zIndex: -1 })

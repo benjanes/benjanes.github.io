@@ -85,7 +85,6 @@ export default class Projects extends Component {
   }
 
   updateCards(projIdx) {
-    console.log('update cards...');
     const nextState = {
       cardOne: projects[projIdx - 2],
       cardTwo: projects[projIdx - 1],
