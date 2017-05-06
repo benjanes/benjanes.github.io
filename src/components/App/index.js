@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactTransitionGroup from 'react-addons-transition-group';
+import { Link } from 'react-router';
 import InfoOverlay from '../sections/InfoOverlay';
 import { styles } from './styles.scss';
 
@@ -35,7 +36,12 @@ class App extends Component {
     return (
       <div className={ `${styles}` }>
         <header className='site-header'>
-          <h1>www.benjanes.com</h1>
+          <Link
+            to='/'
+            className='header-link'
+          >
+            <h1>www.benjanes.com</h1>
+          </Link>
         </header>
         <ReactTransitionGroup
           component='div'

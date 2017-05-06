@@ -15,7 +15,7 @@ export default class BlogPost extends Component {
 
     if (this.props.lastPath === '/blog') {
       tl
-        .set([this.$btn1, this.$btn2], { transformOrigin: '0% 50%', rotationY: -91, backfaceVisibility: 'hidden' })
+        .set([this.$btn1, this.$btn2], { transformOrigin: '0% 50%', rotationY: 91, backfaceVisibility: 'hidden' })
         .to(this.$btn1, 0.4, { rotationY: 0 }, '+=1')
         .to(this.$btn2, 0.4, { rotationY: 0 }, 1.15);
     }
@@ -36,7 +36,7 @@ export default class BlogPost extends Component {
       tl
         .set([this.$btn1, this.$btn2], { transformOrigin: '0% 50%', rotationY: 0, backfaceVisibility: 'hidden' })
         .set(el, { zIndex: -1 })
-        .staggerTo([this.$btn1, this.$btn2], 0.3, { rotationY: -91 }, 0.15);
+        .staggerTo([this.$btn1, this.$btn2], 0.3, { rotationY: 91 }, 0.15);
     }
 
     tl.call(next, null, [], delay);

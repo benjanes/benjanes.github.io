@@ -13,7 +13,7 @@ export default class About extends Component {
 
     if (this.props.isMediumSize) {
       tl
-        .set(this.$btn, { transformOrigin: '0% 50%', rotationY: -91, backfaceVisibility: 'hidden' })
+        .set(this.$btn, { transformOrigin: '0% 50%', rotationY: 91, backfaceVisibility: 'hidden' })
         .set(this.$card1, { transformOrigin: '50% 100%', rotationX: 91, backfaceVisibility: 'hidden' })
         .set(this.$card2, { transformOrigin: '0% 50%', rotationY: 91, backfaceVisibility: 'hidden' })
         .set(this.$card3, { transformOrigin: '50% 0%', rotationX: -91, backfaceVisibility: 'hidden' })
@@ -37,7 +37,7 @@ export default class About extends Component {
 
     tl
       .set(this.$btn, { transformOrigin: '0% 50%', backfaceVisibility: 'hidden' })
-      .to(this.$btn, 0.4, { rotationY: -91 }, 0);
+      .to(this.$btn, 0.4, { rotationY: 91 }, 0);
     
     if (this.props.isMediumSize) {
       tl
