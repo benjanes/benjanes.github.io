@@ -12,7 +12,7 @@ rimraf(compiled, {}, () => {
     if (err) return console.error(err);
     replace({
       regex: '="./',
-      replacement: '="./dist/',
+      replacement: '="/dist/',
       paths: [compiled]
     });
   });
