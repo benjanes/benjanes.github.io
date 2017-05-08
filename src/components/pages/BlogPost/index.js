@@ -29,15 +29,15 @@ export default class BlogPost extends Component {
 
     let delay = 1;
 
-    if (/\/4 digits at start of string\//.test(this.props.lastPath)) {
-      delay = 0.4;
-      tl.to(el, 0.4, { opacity: 0 });
-    } else {
+    // if (/\/\d\d\d\d\//.test(this.props.lastPath)) {
+    //   delay = 0.4;
+    //   tl.to(el, 0.4, { opacity: 0 });
+    // } else {
       tl
         .set([this.$btn1, this.$btn2], { x: '0%', backfaceVisibility: 'hidden' })
         .set(el, { zIndex: -1 })
         .staggerTo([this.$btn1, this.$btn2], 0.3, { x: '-100%', ease: Cubic.easeInOut }, 0.15);
-    }
+    // }
 
     tl.call(next, null, [], delay);
   }
