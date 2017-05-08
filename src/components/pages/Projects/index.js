@@ -70,9 +70,13 @@ export default class Projects extends Component {
         .set(this.$card3, { transformOrigin: '50% 0%', backfaceVisibility: 'hidden' })
         .set(this.$card4, { transformOrigin: '100% 50%', backfaceVisibility: 'hidden' })
         .to(this.$card1, 0.25, { rotationX: 91, ease: Power2.easeInOut })
+        .set(this.$card1, { opacity: 0 })
         .to(this.$card4, 0.25, { rotationY: -91, ease: Power2.easeInOut })
+        .set(this.$card4, { opacity: 0 })
         .to(this.$card3, 0.25, { rotationX: -91, ease: Power2.easeInOut })
-        .to(this.$card2, 0.25, { rotationY: 91, ease: Power2.easeInOut });
+        .set(this.$card3, { opacity: 0 })
+        .to(this.$card2, 0.25, { rotationY: 91, ease: Power2.easeInOut })
+        .set(this.$card2, { opacity: 0 });
     } else {
       let cards = [this.$card3, this.$card4, this.$card1, this.$card2];
       

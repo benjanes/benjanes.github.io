@@ -80,27 +80,43 @@ export default class Home extends Component {
       if (nextPath === '/contact') {
         tl
           .to(this.$card1, 0.25, { rotationY: -91, ease: Power2.easeInOut })
+          .set(this.$card1, { opacity: 0 })
           .to(this.$card2, 0.25, { rotationX: 91, ease: Power2.easeInOut })
+          .set(this.$card2, { opacity: 0 })
           .to(this.$card3, 0.25, { rotationY: 91, ease: Power2.easeInOut })
-          .to(this.$card4, 0.25, { rotationX: -91, ease: Power2.easeInOut });
+          .set(this.$card3, { opacity: 0 })
+          .to(this.$card4, 0.25, { rotationX: -91, ease: Power2.easeInOut })
+          .set(this.$card4, { opacity: 0 });
       } else if (nextPath === '/projects') {
         tl
           .to(this.$card2, 0.25, { rotationX: 91, ease: Power2.easeInOut })
+          .set(this.$card2, { opacity: 0 })
           .to(this.$card3, 0.25, { rotationY: 91, ease: Power2.easeInOut })
+          .set(this.$card3, { opacity: 0 })
           .to(this.$card4, 0.25, { rotationX: -91, ease: Power2.easeInOut })
-          .to(this.$card1, 0.25, { rotationY: -91, ease: Power2.easeInOut });
+          .set(this.$card4, { opacity: 0 })
+          .to(this.$card1, 0.25, { rotationY: -91, ease: Power2.easeInOut })
+          .set(this.$card1, { opacity: 0 });
       } else if (nextPath === '/about') {
         tl
           .to(this.$card3, 0.25, { rotationY: 91, ease: Power2.easeInOut })
+          .set(this.$card3, { opacity: 0 })
           .to(this.$card4, 0.25, { rotationX: -91, ease: Power2.easeInOut })
+          .set(this.$card4, { opacity: 0 })
           .to(this.$card1, 0.25, { rotationY: -91, ease: Power2.easeInOut })
-          .to(this.$card2, 0.25, { rotationX: 91, ease: Power2.easeInOut });
+          .set(this.$card1, { opacity: 0 })
+          .to(this.$card2, 0.25, { rotationX: 91, ease: Power2.easeInOut })
+          .set(this.$card2, { opacity: 0 });
       } else if (nextPath === '/blog') {
         tl
           .to(this.$card4, 0.25, { rotationX: -91, ease: Power2.easeInOut })
+          .set(this.$card4, { opacity: 0 })
           .to(this.$card1, 0.25, { rotationY: -91, ease: Power2.easeInOut })
+          .set(this.$card1, { opacity: 0 })
           .to(this.$card2, 0.25, { rotationX: 91, ease: Power2.easeInOut })
-          .to(this.$card3, 0.25, { rotationY: 91, ease: Power2.easeInOut });
+          .set(this.$card2, { opacity: 0 })
+          .to(this.$card3, 0.25, { rotationY: 91, ease: Power2.easeInOut })
+          .set(this.$card3, { opacity: 0 });
       } else {
         tl
           .fromTo(this.$card1, 0.45, { x: '0%' }, { x: '-100%', ease: Power2.easeInOut }, 0.15)

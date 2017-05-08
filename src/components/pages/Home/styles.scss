@@ -1,5 +1,6 @@
 :local(.styles) {
   .menu-item {
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     width: 50%;
     height: 50vh;

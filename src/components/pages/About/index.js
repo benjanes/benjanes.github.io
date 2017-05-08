@@ -13,7 +13,7 @@ export default class About extends Component {
 
     if (this.props.isMediumSize) {
       tl
-        .set(this.$btn, { transformOrigin: '0% 50%', rotationY: 91, backfaceVisibility: 'hidden' })
+        .set(this.$btn, { x: '-100%', backfaceVisibility: 'hidden' })
         .set(this.$card1, { transformOrigin: '50% 100%', rotationX: 91, backfaceVisibility: 'hidden' })
         .set(this.$card2, { transformOrigin: '0% 50%', rotationY: 91, backfaceVisibility: 'hidden' })
         .set(this.$card3, { transformOrigin: '50% 0%', rotationX: -91, backfaceVisibility: 'hidden' })
@@ -28,7 +28,7 @@ export default class About extends Component {
   }
 
   componentDidEnter() {
-    TweenMax.to(this.$btn, 0.4, { rotationY: 0 });
+    TweenMax.to(this.$btn, 0.4, { x: '0%', ease: Cubic.easeInOut });
   }
 
   componentWillLeave(next) {
@@ -36,8 +36,8 @@ export default class About extends Component {
     const el = ReactDOM.findDOMNode(this);
 
     tl
-      .set(this.$btn, { transformOrigin: '0% 50%', backfaceVisibility: 'hidden' })
-      .to(this.$btn, 0.4, { rotationY: 91 }, 0);
+      .set(this.$btn, { backfaceVisibility: 'hidden', x: '0%' })
+      .to(this.$btn, 0.4, { x: '-100%', ease: Cubic.easeInOut }, 0);
     
     if (this.props.isMediumSize) {
       tl
@@ -46,9 +46,13 @@ export default class About extends Component {
         .set(this.$card3, { transformOrigin: '50% 0%', rotationX: 0, backfaceVisibility: 'hidden' })
         .set(this.$card4, { transformOrigin: '100% 50%', rotationY: 0, backfaceVisibility: 'hidden' })
         .to(this.$card2, 0.25, { rotationY: 91, ease: Power2.easeInOut })
+        .set(this.$card2, { opacity: 0 })
         .to(this.$card1, 0.25, { rotationX: 91, ease: Power2.easeInOut })
+        .set(this.$card1, { opacity: 0 })
         .to(this.$card4, 0.25, { rotationY: -91, ease: Power2.easeInOut })
-        .to(this.$card3, 0.25, { rotationX: -91, ease: Power2.easeInOut });
+        .set(this.$card4, { opacity: 0 })
+        .to(this.$card3, 0.25, { rotationX: -91, ease: Power2.easeInOut })
+        .set(this.$card3, { opacity: 0 });
         
     } else {
       tl.set(el, { zIndex: -1 });

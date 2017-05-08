@@ -49,10 +49,15 @@ export default class Contact extends Component {
         .set(this.$btn1, { transformOrigin: '50% 100%', rotationX: 0, backfaceVisibility: 'hidden' })
         .set(this.$btn0, { transformOrigin: '100% 50%', rotationY: 0, backfaceVisibility: 'hidden' })
         .to(this.$btn0, 0.1875, { rotationY: -91, ease: Power2.easeInOut })
+        .set(this.$btn0, { opacity: 0 })
         .to(this.$btn1, 0.1875, { rotationX: 91, ease: Power2.easeInOut })
+        .set(this.$btn1, { opacity: 0 })
         .to(this.$btn3, 0.1875, { rotationY: 91, ease: Power2.easeInOut })
+        .set(this.$btn3, { opacity: 0 })
         .to(this.$btn2, 0.1875, { rotationY: 91, ease: Power2.easeInOut })
-        .to(this.$panel1, 0.25, { rotationX: 91, ease: Power2.easeInOut });
+        .set(this.$btn2, { opacity: 0 })
+        .to(this.$panel1, 0.25, { rotationX: 91, ease: Power2.easeInOut })
+        .set(this.$panel1, { opacity: 0 });
     } else {
       tl
         .set([this.$panel1, this.$btn0, this.$btn1, this.$btn2, this.$btn3], { x: '0%', y: '0%', backfaceVisibility: 'hidden' })
