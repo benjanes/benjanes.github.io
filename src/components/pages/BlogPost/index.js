@@ -29,7 +29,10 @@ export default class BlogPost extends Component {
 
     let delay = 1;
 
-    // if (/\/\d\d\d\d\//.test(this.props.lastPath)) {
+    // console.log(this.props.lastPath);
+    // console.log(this.props.location.pathname);
+
+    // if (/\/\d\d\d\d\//.test(this.props.location.pathname)) {
     //   delay = 0.4;
     //   tl.to(el, 0.4, { opacity: 0 });
     // } else {
