@@ -1,3 +1,5 @@
+@import '../../../constants';
+
 :local(.styles) {
   .card {
     backface-visibility: hidden;
@@ -5,11 +7,6 @@
     height: 50vh;
     position: relative;
     transform: perspective(500px);
-  }
-
-  .nav-card {
-    background: repeating-linear-gradient(90deg, #fff, #ccc 1vw, #fff 2vw);
-    animation: slideBgLeft 1s linear infinite;
   }
 
   .nav-btn {
@@ -22,12 +19,12 @@
 
   .title {
     height: 35%;
-    background-color: rgba(255,92,83,0.95);
+    background-image: $projectsGradient;
   }
 
   .card-holder .card-container-outer {
-    background-color: #FF817A;
-    border: 1px solid #FF0F02;
+    background-color: $projectsColor;
+    border: 1px solid darken($projectsColor, 10%);
   }
 }
 
@@ -42,7 +39,6 @@
       &:nth-of-type(2) {
         order: -1;
       }
-
     }
 
     .nav-btn, .home-btn, .title {

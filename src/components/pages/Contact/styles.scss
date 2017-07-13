@@ -1,3 +1,5 @@
+@import '../../../constants';
+
 :local(.styles) {
   .contact-panel {
     position: relative;
@@ -23,8 +25,8 @@
     width: 50%;
     height: 50%;
     box-sizing: border-box;
-    background-color: #FFB97A;
-    border: 1px solid rgba(255,164,83,1);
+    background-color: $contactColor;
+    border: 1px solid darken($contactColor, 10%);
     backface-visibility: hidden;
     transform: perspective(500px);
     transition: background-color 0.4s, color 0.4s;
@@ -49,18 +51,13 @@
 
   }
 
-  .nav-card {
-    background: repeating-linear-gradient(0deg, #fff, #ccc 1vh, #fff 2vh);
-    animation: slideBgDown 1s linear infinite;
-  }
-
   .home-btn {
     height: 50%;
   }
 
   .title {
     height: 50%;
-    background-color: rgba(255,164,83,0.9);
+    background-image: $contactGradient;
   }
 
 }

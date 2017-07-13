@@ -1,3 +1,5 @@
+@import '../../constants';
+
 body {
   margin: 0;
   font-family: 'Roboto Mono', monospace;
@@ -78,25 +80,25 @@ h1, h2, h3, h4, h5 {
 
   &.projects {
     &:before {
-      background-color: #FF817A;
+      background-color: $projectsColor;
     }
   }
 
   &.about {
     &:before {
-      background-color: #A4ECF3;
+      background-color: $aboutColor;
     }
   }
 
   &.blog {
     &:before {
-      background-color: #73F082;
+      background-color: $blogColor;
     }
   }
 
   &.contact {
     &:before {
-      background-color: #FFB97A;
+      background-color: $contactColor;
     }
   }
 }
