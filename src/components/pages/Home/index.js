@@ -141,7 +141,7 @@ export default class Home extends Component {
           ref={ card => this.$card1 = card }
           className='menu-item'
         >
-          <MenuItem to='/contact' bgColor='rgba(255,164,83,0.9)'>
+          <MenuItem to='/contact' bgColor=''>
             <h1>contact</h1>
           </MenuItem>
         </div>
@@ -149,7 +149,7 @@ export default class Home extends Component {
           ref={ card => this.$card2 = card }
           className='menu-item'
         >
-          <MenuItem to='/projects' bgColor='rgba(255,92,83,0.9)'>
+          <MenuItem to='/projects' bgColor=''>
             <h1>projects</h1>
           </MenuItem>
         </div>
@@ -157,7 +157,7 @@ export default class Home extends Component {
           ref={ card => this.$card4 = card }
           className='menu-item'
         >
-          <MenuItem to='/blog' bgColor='rgba(76,232,95,0.9)'>
+          <MenuItem to='/blog' bgColor=''>
             <h1>blog</h1>
           </MenuItem>
         </div>
@@ -165,7 +165,7 @@ export default class Home extends Component {
           ref={ card => this.$card3 = card }
           className='menu-item'
         >
-          <MenuItem to='/about' bgColor='rgba(72,203,215,0.9)'>
+          <MenuItem to='/about' bgColor=''>
             <h1>about</h1>
           </MenuItem>
         </div>

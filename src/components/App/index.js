@@ -29,7 +29,7 @@ class App extends Component {
   handleResize() {
     const isMediumSize = window.innerWidth > 768 ? true : false;
 
-    if (!this.state.isMediumSize && isMediumSize || this.state.isMediumSize && !isMediumSize) this.setState({ isMediumSize });
+    if (this.state.isMediumSize !== isMediumSize) this.setState({ isMediumSize });
   }
 
   render() {
@@ -78,4 +78,3 @@ function mapStateToProps({ rootState }) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
-

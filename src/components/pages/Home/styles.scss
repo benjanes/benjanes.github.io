@@ -6,37 +6,77 @@
     height: 50vh;
     position: relative;
     transform: perspective(500px);
-  }
 
-  .menu-item:nth-of-type(1), .menu-item:nth-of-type(4) {
-    background: repeating-linear-gradient(0deg, #fff, #ccc 1vh, #fff 2vh);
-    &:hover {
-      background: repeating-linear-gradient(0deg, #fff, #000 1vh, #fff 2vh);
+    &:before {
+      content: '';
+      position: absolute;
+      display: block;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
     }
-  }
 
-  .menu-item:nth-of-type(2), .menu-item:nth-of-type(3) {
-    background: repeating-linear-gradient(90deg, #fff, #ccc 1vw, #fff 2vw);
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 1;
+      transition: opacity 1s;
+    }
+
     &:hover {
-      background: repeating-linear-gradient(90deg, #fff, #000 1vw, #fff 2vw);
+      &:after {
+        transition: opacity 0.2s;
+        opacity: 0;
+      }
     }
   }
 
   .menu-item:nth-of-type(1) {
-    animation: slideBgDown 1s linear infinite;
+    &:after {
+      background-color: #ff9a9e;
+    
+    }
+    &:before {
+      background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 100%);
+    }
   }
 
   .menu-item:nth-of-type(2) {
-    animation: slideBgLeft 1s linear infinite;
+    &:after {
+      background-color: #6a85b6;
+    
+    }
+    &:before {
+      background-image: linear-gradient(45deg, #6a85b6 0%, #bac8e0 100%);
+    }
   }
 
   .menu-item:nth-of-type(3) {
-    animation: slideBgRight 1s linear infinite;
+    &:after {
+      background-color: #a1c4fd;
+    }
+    &:before {
+      background-image: linear-gradient(45deg, #a1c4fd 0%, #c2e9fb 100%);
+    }
   }
 
   .menu-item:nth-of-type(4) {
-    animation: slideBgUp 1s linear infinite;
+    &:after {
+      background-color: #cd9cf2;
+    }
+    &:before {
+      background-image: linear-gradient(45deg, #cd9cf2 0%, #f6f3ff 100%);
+    }
   }
+
 }
 
 @media (max-width: 768px) {
@@ -47,21 +87,21 @@
       width: 100%;
       height: 25%;
       
-      &:nth-of-type(1), &:nth-of-type(3) {
-        background: repeating-linear-gradient(0deg, #fff, #ccc 1vh, #fff 2vh);
-        animation: slideBgDown 1s linear infinite;
-        &:hover {
-          background: repeating-linear-gradient(0deg, #fff, #ccc 1vh, #fff 2vh);
-        }
-      }
+      // &:nth-of-type(1), &:nth-of-type(3) {
+      //   background: repeating-linear-gradient(0deg, #fff, #ccc 1vh, #fff 2vh);
+      //   animation: slideBgDown 1s linear infinite;
+      //   &:hover {
+      //     background: repeating-linear-gradient(0deg, #fff, #ccc 1vh, #fff 2vh);
+      //   }
+      // }
 
-      &:nth-of-type(2), &:nth-of-type(4) {
-        background: repeating-linear-gradient(0deg, #fff, #ccc 1vh, #fff 2vh);
-        animation: slideBgUp 1s linear infinite;
-        &:hover {
-          background: repeating-linear-gradient(0deg, #fff, #ccc 1vh, #fff 2vh);
-        }
-      }
+      // &:nth-of-type(2), &:nth-of-type(4) {
+      //   background: repeating-linear-gradient(0deg, #fff, #ccc 1vh, #fff 2vh);
+      //   animation: slideBgUp 1s linear infinite;
+      //   &:hover {
+      //     background: repeating-linear-gradient(0deg, #fff, #ccc 1vh, #fff 2vh);
+      //   }
+      // }
 
     }
   }
