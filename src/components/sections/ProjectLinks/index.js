@@ -5,7 +5,7 @@ export default function ProjectLinks(props) {
 	if (props.content.mainLink) links.push({ type: 'link', href: props.content.mainLink });
 	if (props.content.ghLink) links.push({ type: 'github', href: props.content.ghLink });
 	if (props.content.cpLink) links.push({ type: 'codepen', href: props.content.cpLink });
-	if (props.content.email) links.push({ type: 'envelope', href: `mailto${props.content.email}` });
+	if (props.content.email) links.push({ type: 'envelope', href: `mailto:${props.content.email}` });
 
 	return (
 		<div
