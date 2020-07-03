@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  {% include head.html %}
+  <body>
+    <ul class="main-site-listing">
+      {% for p in site.slugs %}
+        <li><a class="page-link" href="{{ p | relative_url }}">{{ p }}</a></li>
+      {% endfor %}
+    </ul>
+    <div class="bg-canvas-container">
+      <canvas id="homeAnimationCanvas" class="bg-canvas"></canvas>
+    </div>
+    {% include footer.html %}
+
+  {% for f in page.jsfiles %}
+    <script src="{{ f | relative_url }}"></script>
+  {% endfor %}
+  </body>
+
+  
+</html>

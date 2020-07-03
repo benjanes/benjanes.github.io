@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  {% include head.html %}
+  <body>
+    {% include header.html %}
+    <main class="wrapper">
+      {{ content}}
+
+      {% if page.title == "shop" %}
+        {% include listings.html %}
+      {% endif %}
+
+      {% if page.title == "work" %}
+        {% include projects.html %}
+      {% endif %}
+    </main>
+
+    {% if page.title == "about" or page.title == "work" %}
+    <div class="bg-canvas-container">
+      <canvas class="bg-canvas"></canvas>
+    </div>
+    {% endif %}
+    
+    {% include footer.html %}
+
+    <script src="{{ "/assets/js/nav.js" | relative_url }}"></script>
+    {% for f in page.jsfiles %}
+      <script src="{{ f | relative_url }}"></script>
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,11 @@
+<div class="project-list">
+  {% for project in site.projects %}
+  <a class="project" href="{{ project.link }}">
+    <img src="{{ project.img | relative_url }}"/>
+    <div class="project-copy">
+        <h1>{{ project.name }}</h1>
+        <p>{{ project.desc }}</p>
+    </div>
+  </a>
+  {% endfor %}
+</div>
