@@ -1,6 +1,6 @@
 <div class="listing-grid">
   {% for product in site.products %}
-    <a class="listing" href="{{ product.link }}">
+    <a class="listing {{ product.class }}" href="{{ product.link }}">
       <div class="listing-overlay">
         <h1>{{ product.name }}</h1>
         <h4>View on Etsy</h4>
