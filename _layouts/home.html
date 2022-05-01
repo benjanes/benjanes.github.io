@@ -10,12 +10,15 @@
     <div class="bg-canvas-container">
       <canvas id="homeAnimationCanvas" class="bg-canvas"></canvas>
     </div>
+
+    {% include colorpicker.html %}
+
     {% include footer.html %}
+
+  <script src="{{ "/assets/js/colorSelect.js" | relative_url }}"></script>
 
   {% for f in page.jsfiles %}
     <script src="{{ f | relative_url }}"></script>
   {% endfor %}
   </body>
-
-  
 </html>

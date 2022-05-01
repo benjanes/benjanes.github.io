@@ -20,10 +20,13 @@
       <canvas class="bg-canvas"></canvas>
     </div>
     {% endif %}
+
+    {% include colorpicker.html %}
     
     {% include footer.html %}
 
     <script src="{{ "/assets/js/nav.js" | relative_url }}"></script>
+    <script src="{{ "/assets/js/colorSelect.js" | relative_url }}"></script>
     {% for f in page.jsfiles %}
       <script src="{{ f | relative_url }}"></script>
     {% endfor %}
