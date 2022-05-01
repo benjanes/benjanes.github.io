@@ -1,18 +1,15 @@
 (function() {
   const canvas = document.querySelector('#homeAnimationCanvas');
+  canvas.classList.add('home');
   const ctx = canvas.getContext('2d');
   const width = 3000;
 	const height = 3000;
 	canvas.width = width;
   canvas.height = height;
-  ctx.lineWidth = 4;
+  ctx.lineWidth = 6;
 
   const nSquares = 10;
   const rotationAngle = Math.PI;
-
-  ctx.fillStyle = 'rgba(245,245,245,1)';
-  ctx.strokeStyle = 'rgba(255,255,255,1)';
-  ctx.lineWidth = 0;
 
   const copyPt = pt => ({ ...pt });
 
@@ -49,6 +46,7 @@
     }
 
     draw() {
+      ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--theme');
       this.rotate(this.rotation);
       const [p1, p2, p3, p4] = this.rotatedPts;
       ctx.beginPath();
@@ -80,7 +78,7 @@
   squares.push(sqrsArr.map(_ => new Square(distanceStep * ((nSquares / 2) - 1) - (distanceStep / 2), distanceStep * ((nSquares / 2) - 3) - (distanceStep / 2), squareW)))
   squares.push(sqrsArr.map(_ => new Square(distanceStep * ((nSquares / 2) + 1) - (distanceStep / 2), distanceStep * ((nSquares / 2) - 3) - (distanceStep / 2), squareW)))
 
-  const dur = 2;
+  const dur = 4;
 
   squares.forEach((ss, idx) => {
     const tl = new TimelineMax({ repeat: -1 });

@@ -7,19 +7,27 @@
   const ctx = canvas.getContext('2d');
   const center = { x: width / 2, y: height / 2 };
 
-  ctx.fillStyle = 'rgba(255,255,255,0.2)';
-  ctx.strokeStyle = '#fff';
+  // ctx.fillStyle = 'rgba(255,255,255,0.2)';
+  // ctx.strokeStyle = '#fff';
+  // const color = getComputedStyle(document.documentElement).getPropertyValue('--theme');
+  //   // ctx.strokeStyle = 'rgb(0,0,0)';
+  // ctx.strokeStyle = color;
+  // ctx.fillStyle = color;
+
   const pointCount = 20;
   const connectionCount = 6;
   const circleRadius = width / 2;
-  const dotRadius = 8;
-  const haloRadius = 30;
-  const minLineWidth = 3;
-  const maxLineWidth = 8;
+  const dotRadius = 6;
+  const haloRadius = 20;
+  const minLineWidth = 2;
+  const maxLineWidth = 4;
 
-  const pointAnimationDuration = 3;
+  // const pointAnimationDuration = 3;
+  // const opacityFadeDuration = pointAnimationDuration * 0.1;
+  // const connectionAnimationDurations = [0.25, 0.5, 1, 1.25].map(x => x / 1.5);
+  const pointAnimationDuration = 6;
   const opacityFadeDuration = pointAnimationDuration * 0.1;
-  const connectionAnimationDurations = [0.25, 0.5, 1, 1.25].map(x => x / 1.5);
+  const connectionAnimationDurations = [0.5, 1, 2, 2.5].map(x => x / 1.5);
 
   const minRadius = circleRadius / 8;
   const startBasePoint = { ...center, x: center.x + circleRadius };
@@ -74,6 +82,9 @@
   TweenMax.fromTo(rotation, 25, { angle: 0 }, { angle: 2 * Math.PI, repeat: -1, ease: Power0.easeNone });
 
   function draw() {
+    const color = getComputedStyle(document.documentElement).getPropertyValue('--theme');
+    ctx.strokeStyle = color;
+    ctx.fillStyle = color;
     ctx.clearRect(0, 0, width, height);
     ctx.save();
     ctx.translate(center.x, center.y);
@@ -81,9 +92,10 @@
     ctx.translate(-center.x, -center.y);
     
     points.forEach(arr => arr.forEach(({ x, y, initialX, initialY, opacity, lineWidth, drawHalo }) => {
-      const color = `rgba(255,255,255,${opacity})`;
-      ctx.fillStyle = color;
-      ctx.strokeStyle = color;
+      // const color = `rgba(255,255,255,${opacity})`;
+      // ctx.fillStyle = color;
+      // ctx.strokeStyle = color;
+      ctx.globalAlpha = opacity;
       ctx.lineWidth = lineWidth;
       drawLine(initialX, initialY, x, y);
 

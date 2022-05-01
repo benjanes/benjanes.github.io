@@ -16,17 +16,22 @@
   const opts = { angle: Math.PI * 0, triSize: 0.7 };
 
   TweenMax.ticker.addEventListener('tick', draw)
-  TweenMax.to(opts, 30, { angle: Math.PI * (3.82 * 3), ease: Power1.easeInOut });
-  TweenMax.to(opts, 30, { angle: Math.PI * 0, ease: Power1.easeInOut, delay: 30 })
+  TweenMax.to(opts, 70, { angle: Math.PI * (3.82 * 3), ease: Power1.easeInOut });
+  TweenMax.to(opts, 70, { angle: Math.PI * 0, ease: Power1.easeInOut, delay: 70 })
 
 
   function draw() {
     // ctx.fillStyle = '#502cc4';
-    ctx.fillStyle = 'rgb(20,20,20)';
-    ctx.fillRect(0, 0, width, height);
+    // ctx.fillStyle = 'transparent';
+    // ctx.fillRect(0, 0, width, height);
+
+    ctx.clearRect(0, 0, width, height)
 
     const cols = [];
     const rows = [];
+
+    ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--theme');
+
 
     // using triangle
     for (let y = 0; step * y < height - (step * 2); y++) {
@@ -71,11 +76,16 @@
       }
     }
 
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 4;
+
+    // const color = getComputedStyle(document.documentElement).getPropertyValue('--theme');
+    // // ctx.strokeStyle = 'rgb(0,0,0)';
+    // ctx.strokeStyle = color;
+
 
     rows.forEach(row => {
       // ctx.strokeStyle = '#6666ff';
-      ctx.strokeStyle = 'rgb(255,255,255)';
+      // ctx.strokeStyle = 'rgb(255,255,255)';
       ctx.beginPath();
       ctx.moveTo(row[0].x, row[0].y);
       row.forEach(col => {
@@ -87,7 +97,7 @@
 
     cols.forEach(col => {
       // ctx.strokeStyle = '#ff6666';
-      ctx.strokeStyle = 'rgb(255,255,255)';
+      // ctx.strokeStyle = 'rgb(255,255,255)';
 
       ctx.beginPath();
       ctx.moveTo(col[0].x, col[0].y);
